@@ -39,7 +39,7 @@ public class Car {
 
 	// 메소드
 	int run() {
-		System.out.println("자동차가 달리기 시작합니다.");
+		System.out.println("[ 자동차가 달리기 시작합니다. ]");
 		if (frontLeftTire.roll() == false) {
 			stop();
 			return 1;
@@ -60,6 +60,6 @@ public class Car {
 	}
 
 	void stop() {
-		System.out.println("자동차가 멈췄습니다.");
+		System.out.println("[ 자동차가 멈췄습니다. ]");
 	}
 }

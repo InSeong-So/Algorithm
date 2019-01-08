@@ -3,6 +3,7 @@ package classTest;
 public class CarTest {
 
 	public static void main(String[] args) {
+
 		// Car 객체 생성
 		Car car = new Car();
 
