@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Solution {
 
-	// 첫번째, 해결 영상을 참조한 것.
+	// 오픈톡 : 첫번째, 해결 영상을 참조한 것.
 	public String[] solution(String[] record) {
 		List<String> resultList = new ArrayList<String>();
 		Map<String, String> idName = new HashMap<String, String>();
