@@ -1,4 +1,4 @@
-package Etc;
+package practiceCode.exerciseCode;
 
 import java.util.Scanner;
 

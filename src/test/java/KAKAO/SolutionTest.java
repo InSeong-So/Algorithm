@@ -2,6 +2,8 @@ package KAKAO;
 
 import org.junit.Test;
 
+import algorithm.kakao.Solution;
+
 public class SolutionTest {
 
 	@Test

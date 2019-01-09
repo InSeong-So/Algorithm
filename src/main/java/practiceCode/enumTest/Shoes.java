@@ -1,4 +1,4 @@
-package Etc;
+package practiceCode.enumTest;
 
 // 열거형 상수 연결 테스트
 enum Type {

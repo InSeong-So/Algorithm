@@ -1,4 +1,4 @@
-package classTest2;
+package practiceCode.classTest;
 
 public class Tire {
 

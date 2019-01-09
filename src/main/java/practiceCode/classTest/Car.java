@@ -1,4 +1,4 @@
-package classTest;
+package practiceCode.classTest;
 
 public class Car {
 //	// 객체 생성 테스트

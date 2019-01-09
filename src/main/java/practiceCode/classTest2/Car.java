@@ -1,4 +1,4 @@
-package classTest2;
+package practiceCode.classTest2;
 
 public class Car {
 

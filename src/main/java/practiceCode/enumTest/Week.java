@@ -1,4 +1,4 @@
-package Etc;
+package practiceCode.enumTest;
 
 public enum Week {
 

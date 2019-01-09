@@ -1,4 +1,4 @@
-package classTest;
+package practiceCode.classTest2;
 
 public class KumhoTire extends Tire {
 

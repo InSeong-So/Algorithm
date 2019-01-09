@@ -1,4 +1,4 @@
-package Etc;
+package algorithm.basic;
 
 public class Factorial {
 

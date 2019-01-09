@@ -1,4 +1,4 @@
-package Etc;
+package practiceCode.enumTest;
 
 import java.util.Calendar;
 
