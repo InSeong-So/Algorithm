@@ -1,13 +1,13 @@
 package practiceCode.cloneTest;
 
-public class deepMemberTest {
+public class DeepMemberTest {
 
 	public static void main(String[] args) {
 		// 원본 객체 생성
-		deepMember original = new deepMember("홍길동", 25, new int[] { 90, 95 }, new Car("소나타"));
+		DeepMember original = new DeepMember("홍길동", 25, new int[] { 90, 95 }, new Car("소나타"));
 
 		// 복제 객체를 얻은 후에 참조 객체의 값을 변경
-		deepMember cloned = original.getDeepMember();
+		DeepMember cloned = original.getDeepMember();
 		cloned.scores[0] = 100;
 		cloned.car.model = "그랜저";
 

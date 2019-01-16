@@ -1,6 +1,6 @@
 package practiceCode.stringTest;
 
-public class stringBuilder {
+public class StringBuilderTest {
 	public static void main(String[] args) {
 		// StringBuilder 객체 생성
 		StringBuilder sb = new StringBuilder();

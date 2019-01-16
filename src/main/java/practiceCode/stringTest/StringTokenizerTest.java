@@ -2,7 +2,7 @@ package practiceCode.stringTest;
 
 import java.util.StringTokenizer;
 
-public class stringTokenizer {
+public class StringTokenizerTest {
 
 	public static void main(String[] args) {
 		String text = "홍길동/이수홍/박연수";

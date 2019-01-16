@@ -3,7 +3,7 @@ package practiceCode.stringTest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class string {
+public class StringTest {
 
 	/* String 생성자들
 	 *
