@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Solution {
+public class _01_Solution {
 
 	// 오픈톡 : 첫번째, 해결 영상을 참조한 것.
 	public String[] solution(String[] record) {
