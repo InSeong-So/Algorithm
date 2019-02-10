@@ -15,23 +15,23 @@
 <hr>
 
 ### 면접 문제
-- 1.1 중복이 없는가
+- [1.1 중복이 없는가](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one01.java)
   - 문자열이 주어졌을 때, 이 문자열에 같은 문자가 중복되어 등장하는지 확인하는 알고리즘을 작성하라. 자료구조를 추가로 사용하지 않고 풀 수 있는 알고리즘 또한 고민하라.
-- 1.2 순열 확인
+- [1.2 순열 확인](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one02.java)
   - 문자열 두 개가 주어졌을 때 이 둘이 서로 순열 관계에 있는지 확인하는 메서드를 작성하라.
-- 1.3 URI화
+- [1.3 URI화](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one03.java)
   - 문자열에 들어 있는 모든 공백을 '%20'으로 바꿔 주는 메서드를 작성하라. 최종적으로 모든 문자를 다 담을 수 있을 만큼 충분한 공간이 이미 확보되어 있으며 문자열의 최종 길이가 함께 주어진다고 가정해도 된다(자바로 구현한다면 배열 안에서 작업할 수 있도록 문자 배열(character array)를 이용하길 바란다).
   ```
 	입력 : "Mr John Smith", 13
 	출력 : "Mr%20John%20Smith"
   ```
-- 1.4 회문 순열
+- [1.4 회문 순열](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one04.java)
   - 주어진 문자열이 회문(palindrome)의 순열인지 아닌지 확인하는 함수를 작성하라. 회문이란 앞으로 읽으나 뒤로 읽으나 같은 단어 혹은 구절을 의미하며, 순열이란 문자열을 재배치하는 것을 뜻한다. 회문이 꼭 사전에 등장하는 단어로 제한될 필요는 없다.
   ```
   	입력 : Tact Coa
   	출력 : True (순열 : "taco cat", "atco cta" 등)
   ```
-- 1.5 하나 빼기
+- [1.5 하나 빼기](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one05.java)
   - 문자열을 편집하는 방법에는 세 가지 종류가 있다. 문자 삽입, 문자 삭제, 문자 교체. 문자열 두 개가 주어졌을 때, 문자열을 같게 만들기 위한 편집 횟수가 1회 이내인지 확인하는 함수를 작성하라.
   ```
   	pale, ple -> true
@@ -39,13 +39,13 @@
   	pale, bale -> true
   	pale, bake -> false
   ```
-- 1.6 문자열 압축
+- [1.6 문자열 압축](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one06.java)
   - 반복되는 문자의 개수를 세는 방식의 기본적인 문자열 압축 메서드를 작성하라. 예를 들어 문자열 aabccccaaa를 압축하면 a2b1c4a3이 된다. 만약 "압축된" 문자열의 길이가 기존 문자열의 길이보다 길다면 기존 문자열을 반환해야 한다. 문자열은 대소문자 알파벳(a~z)으로만 이루어져 있다.
-- 1.7 행렬 회전
+- [1.7 행렬 회전](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one07.java)
   - 이미지를 표현하는 N x N 행렬이 있다. 이미지의 각 픽셀은 4바이트로 표현된다. 이 때, 이미지를 90도 회전시키는 메서드를 작성하라. 행렬을 추가로 사용하지 않고서도 할 수 있겠는가?
-- 1.8 0 행렬
+- [1.8 0 행렬](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one08.java)
   - M x N 행렬의 한 원소가 0일 경우, 해당 원소가 속한 행과 열의 모든 원소를 0으로 설정하는 알고리즘을 작성하라.
-- 1.9 문자열 회전
+- [1.9 문자열 회전](https://github.com/InSeong-So/Algorithm/blob/master/src/main/java/algorithm/questions/one/_01/one09.java)
   - 한 단어가 다른 문자열에 포함되어 있는지 판별하는 isSubstring이라는 메서드가 있다고 하자. s1과 s2의 두 문자열이 주어졌고, s2가 s1을 회전시킨 결과인지 판별하고자 한다(가령 'waterbottle'은 'erbottlewat'을 회전시켜 얻을 수 있는 문자열이다). isSubstring 메서드를 한 번만 호출해서 판별할 수 있는 코드를 작성하라.
 
 ---

@@ -2,8 +2,10 @@ package algorithm.questions.one._01;
 
 import java.util.Arrays;
 
-/*- 1.2 순열 확인
-- 문자열 두 개가 주어졌을 때 이 둘이 서로 순열 관계에 있는지 확인하는 메서드를 작성하라.*/
+/*
+ * - 1.2 순열 확인
+ * - 문자열 두 개가 주어졌을 때 이 둘이 서로 순열 관계에 있는지 확인하는 메서드를 작성하라.
+ */
 public class one02 {
 
 	// solution 1. 정렬하라.
