@@ -23,4 +23,4 @@
 - [HackerRank](https://www.hackerrank.com/)
 
 
-## 스터디 커리큘럼
+## [스터디 커리큘럼](curriculum.md)
