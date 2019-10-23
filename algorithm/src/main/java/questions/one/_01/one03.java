@@ -14,6 +14,10 @@ public class one03
     
     char[] replaceSpaces(String str, int trueLength)
     {
+        if(trueLength > str.length() || trueLength < str.length() || trueLength == 0) {
+            trueLength = str.length();
+        }
+
         int spaceCount = 0, index, i = 0;
         char[] cstr = str.toCharArray();
         
