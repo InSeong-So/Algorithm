@@ -8,9 +8,12 @@
 </div>
 
 # 목표
-<div align=center style="color:green; font-weight:bold; font-size:20px;">
+
+<div align="center" style="color:green; font-weight:bold; font-size:20px;">
 기초 알고리즘과 자료구조를 이해하고 문제 해결의 접근법을 제시할 수 있다.
 </div>
+
+<br>
 
 # [1주차-알고리즘과 자료구조의 개요](curriculumn/../curriculum/week_01.md)
 
