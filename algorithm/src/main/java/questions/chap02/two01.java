@@ -1,4 +1,4 @@
-package questions.one._02;
+package questions.chap02;
 
 import java.util.HashSet;
 import java.util.LinkedList;

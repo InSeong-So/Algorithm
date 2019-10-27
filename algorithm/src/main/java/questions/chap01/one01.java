@@ -1,4 +1,4 @@
-package questions.one._01;
+package questions.chap01;
 
 /*
  * - 1.1 중복이 없는가

@@ -1,4 +1,4 @@
-package questions.one._01;
+package questions.chap01;
 
 import java.util.Arrays;
 

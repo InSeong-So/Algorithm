@@ -1,5 +1,5 @@
 
-package questions.one._01;
+package questions.chap01;
 
 /*
  * - 1.8 0 행렬

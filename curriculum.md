@@ -22,3 +22,7 @@
 [뒤로가기](README.md)
 
 <br>
+
+# [2주차-정렬 알고리즘](curriculumn/../curriculum/week_02.md)
+
+<br>

@@ -1,4 +1,4 @@
-package questions.one._01;
+package questions.chap01;
 
 /*
  * - 1.9 문자열 회전

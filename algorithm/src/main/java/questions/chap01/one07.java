@@ -1,4 +1,4 @@
-package questions.one._01;
+package questions.chap01;
 
 /*
  * - 1.7 행렬 회전

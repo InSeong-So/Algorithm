@@ -1,4 +1,4 @@
-package questions.one._01;
+package questions.chap01;
 
 /*
  * - 1.4 회문 순열
