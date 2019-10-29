@@ -22,6 +22,11 @@
 <hr>
 <br>
 
+## [스터디 커리큘럼](curriculum.md)
+
+<hr>
+<br>
+
 ## 알고리즘 사이트
 - [Baekjoon Online Judge](https://www.acmicpc.net/)
 
@@ -40,7 +45,12 @@
 <hr>
 <br>
 
-## [스터디 커리큘럼](curriculum.md)
+## 참고 도서
+- [코딩 인터뷰 완전 분석](http://www.yes24.com/Product/Goods/44305533?Acode=101)
+
+- [Do it! 자료구조와 함께 배우는 알고리즘 입문 자바 편](http://www.yes24.com/Product/Goods/60547893?Acode=101)
+
+- [JAVA 프로그래밍 면접 이렇게 준비한다](http://www.yes24.com/Product/Goods/15860760?Acode=101)
 
 <hr>
 <br>
