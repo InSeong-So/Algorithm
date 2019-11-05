@@ -23,6 +23,18 @@
 
 <br>
 
-# [2주차-정렬 알고리즘](curriculumn/../curriculum/week_02.md)
+# [2주차-정렬 알고리즘 소개](curriculumn/../curriculum/week_02.md)
+
+<br>
+
+[뒤로가기](README.md)
+
+<br>
+
+# [3주차-정렬 알고리즘 구현](curriculumn/../curriculum/week_03.md)
+
+<br>
+
+[뒤로가기](README.md)
 
 <br>
