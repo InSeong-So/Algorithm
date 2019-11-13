@@ -38,3 +38,11 @@
 [뒤로가기](README.md)
 
 <br>
+
+# [4주차-탐색 알고리즘 소개](curriculumn/../curriculum/week_04.md)
+
+<br>
+
+[뒤로가기](README.md)
+
+<br>
