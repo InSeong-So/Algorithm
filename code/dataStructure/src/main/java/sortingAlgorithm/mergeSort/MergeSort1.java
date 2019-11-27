@@ -84,7 +84,7 @@ public class MergeSort1 {
         // 위 조건에서 검사하지 못한 요소를 재차 검사(왼쪽)
         // 왼쪽 배열의 마지막 위치에 값을 삽입하는지를 체크하는 것
         // 값이 true 라면 마지막 인덱스에 값을 삽입함
-        if (leftPtr < left.length) {
+        while (leftPtr < left.length) {
             merged[index] = left[leftPtr];
             leftPtr++;
             index++;
@@ -93,7 +93,7 @@ public class MergeSort1 {
         // 위 조건에서 검사하지 못한 요소를 재차 검사(오른쪽)
         // 오른쪽 배열의 마지막 위치에 값을 삽입하는지를 체크하는 것
         // 값이 true 라면 마지막 인덱스에 값을 삽입함
-        if (rightPtr < right.length) {
+        while (rightPtr < right.length) {
             merged[index] = right[rightPtr];
             rightPtr++;
             index++;
