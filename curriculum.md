@@ -39,7 +39,23 @@
 
 <br>
 
-# [4주차-탐색 알고리즘 소개](curriculumn/../curriculum/week_04.md)
+# [4주차-탐색 알고리즘의 구현](curriculumn/../curriculum/week_04.md)
+
+<br>
+
+[뒤로가기](README.md)
+
+<br>
+
+# [5주차-스택과 큐 자료구조의 구현](curriculumn/../curriculum/week_05.md)
+
+<br>
+
+[뒤로가기](README.md)
+
+<br>
+
+# [6주차-기초 알고리즘 문제 풀이 1](curriculumn/../curriculum/week_06.md)
 
 <br>
 

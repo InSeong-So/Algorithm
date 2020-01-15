@@ -1,6 +1,6 @@
 <div align=center>
 
-# 4주차-검색 알고리즘 소개
+# 4주차-검색 알고리즘의 구현
 
 </div>
 
@@ -59,10 +59,19 @@
 
 - 실습
     ```java
-    static int seqSearch()
+    public static int seqSearch(int[] n, int t)
     {
-        // 검색 실패 시
-        return -1;
+        int i = 0;
+        
+        while (true)
+        {
+            if (i == n.length)
+                return -1;
+            if (n[i] == t)
+                return i;
+            
+            i++;
+        }
     }
     ```
 
@@ -73,10 +82,31 @@
 
 - 실습
     ```java
-    static int seqSearchSen()
+    public static void main(String[] args)
     {
-        // 검색 실패 시
-        return -1;
+        int[] serachTargetArray = {6, 1, 2, 3, 4, 8, 9, 7, 5};
+        int[] tempTargetArray = new int[searchTargetArray.length];
+
+        for(int i = 0; i < serachTargetArray.length; i++)
+            tempTargetArray[i] = serachTargetArray[i];
+
+        seqSearchSen(tempTargetArray, 9);
+    }
+
+    public static int seqSearchSen(int[] n, int t)
+    {
+        n[n.length - 1] = t;
+
+        int i = 0;
+        
+        while (true)
+        {
+            if (n[i] == t)
+                break;
+            i++;
+        }
+        
+        return i == n.length ? -1 : i;
     }
     ```
 
@@ -99,9 +129,24 @@
 
 - 실습
     ```java
-    static int binSearch()
+    public static int binSearch(int[] n, int t)
     {
-        // 검색 실패 시
+        int start = 0;
+        int end = n.length - 1;
+        
+        do
+        {
+            int center = (start + end) / 2;
+            
+            if (n[center] == t)
+                return center;
+            else if (n[center] < t)
+                start = center + 1;
+            else
+                end = center - 1;
+
+        } while (start <= end);
+
         return -1;
     }
     ```
@@ -239,6 +284,133 @@
   - 문제의 정답은 1, 2, 3, 4, 5중 하나입니다.
   - 가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
 
+<hr>
+
+- java 풀이
+    ```java
+    import java.util.*;
+
+    class Solution {
+        public int[] solution(int[] answers) {
+            int[] student1 = { 1, 2, 3, 4, 5 };
+            int[] student2 = { 2, 1, 2, 3, 2, 4, 2, 5 };
+            int[] student3 = { 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 };
+            
+            int[] tempA = new int[3];
+            
+            for (int i = 0; i < answers.length; i++)
+            {
+                if (answers[i] == student1[i % 5])
+                {
+                    tempA[0]++;
+                }
+                if (answers[i] == student2[i % 8])
+                {
+                    tempA[1]++;
+                }
+                if (answers[i] == student3[i % 10])
+                {
+                    tempA[2]++;
+                }
+            }
+            
+            int temp = tempA[0];
+            
+            for (int i = 1; i < tempA.length; i++)
+            {
+                if (tempA[i] > temp)
+                {
+                    temp = tempA[i];
+                }
+            }
+            
+            List<Integer> answer = new ArrayList<Integer>();
+            
+            for (int i = 0; i < tempA.length; i++)
+            {
+                if (temp == tempA[i])
+                {
+                    answer.add(i + 1);
+                }
+                
+            }
+            
+            int[] returnValue = new int[answer.size()];
+            
+            for (int i = 0; i < answer.size(); i++)
+            {
+                returnValue[i] = answer.get(i);
+            }
+            
+            return returnValue;
+        }
+    }
+    ```
+
+- c# 풀이
+    ```cs
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class Solution {
+        public int[] solution(int[] answers) {
+    int[] student1 = { 1, 2, 3, 4, 5 };
+                int[] student2 =  { 2, 1, 2, 3, 2, 4, 2, 5 };
+                int[] student3 =  { 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 };
+
+                // 점수를 저장할 임시 배열 생성
+                int[] tempArray = new int[3];
+
+                // 문제와 답변을 완전 탐색하면서 수포자들의 답안 체크 후 점수 증가
+                for (int i = 0; i < answers.Length; i++)
+                {
+                    // 1번 수포자 점수 증가
+                    if (answers[i] == student1[i % 5])
+                    {
+                        tempArray[0]++;
+                    }
+
+                    // 2번 수포자 점수 증가
+                    if (answers[i] == student2[i % 8])
+                    {
+                        tempArray[1]++;
+                    }
+
+                    // 3번 수포자 점수 증가
+                    if (answers[i] == student3[i % 10])
+                    {
+                        tempArray[2]++;
+                    }
+                }
+
+                int max = 0;
+
+                for(int i = 0; i < tempArray.Length; i++)
+                {
+                    if (max < tempArray[i])
+                        max = tempArray[i];
+                }
+
+                List<int> list = new List<int>();
+
+                for(int i = 0; i < tempArray.Length; i++)
+                {
+                    if (max == tempArray[i])
+                        list.Add(i + 1);
+                }
+
+                int[] answer = new int[list.Count];
+
+                for (int i = 0; i < answer.Length; i++)
+                {
+                    answer[i] = list[i];
+                }
+
+                return answer;
+        }
+    }
+    ```
+
 <br>
 
 ## [2번 - 백준 알고리즘](https://www.acmicpc.net/problem/2805)
@@ -256,6 +428,10 @@
 
 - 출력
   - 적어도 M미터의 나무를 집에 가져가기 위해서 절단기에 설정할 수 있는 높이의 최댓값을 출력한다.
+
+<hr>
+
+- *해당 문제는 보류*
 
 <hr>
 <br>
