@@ -497,7 +497,7 @@ public class test()
 ## 거품 정렬
 <div align=center>
 
-![](img/Bubble_sort_animation.gif)
+![](../img/Bubble_sort_animation.gif)
 
 </div>
 
@@ -513,7 +513,7 @@ public class test()
 
 <div align=center>
 
-![](img/02.JPG)
+![](../img/02.JPG)
 
 </div>
 
@@ -579,7 +579,7 @@ public static void bubbleSort2(int[] n)
 ## 삽입 정렬
 <div align=center>
 
-![](img/Insertion_sort_animation.gif)
+![](../img/Insertion_sort_animation.gif)
 
 </div>
 
@@ -595,7 +595,7 @@ public static void bubbleSort2(int[] n)
 
 <div align=center>
 
-![](img/03.JPG)
+![](../img/03.JPG)
 
 </div>
 
@@ -634,7 +634,7 @@ public static void insertionSort(int[] n)
 ## 선택 정렬
 <div align=center>
 
-![](img/Selection_sort_animation.gif)
+![](../img/Selection_sort_animation.gif)
 
 </div>
 
@@ -651,7 +651,7 @@ public static void insertionSort(int[] n)
 
 <div align=center>
 
-![](img/04.JPG)
+![](../img/04.JPG)
 
 </div>
 
@@ -691,7 +691,7 @@ public static void selectionSort(int[] n)
 ## 퀵 정렬
 <div align=center>
 
-![](img/Sorting_quicksort_anim.gif)
+![](../img/Sorting_quicksort_anim.gif)
 
 </div>
 
@@ -712,7 +712,7 @@ public static void selectionSort(int[] n)
 
 <div align=center>
 
-![](img/05.JPG)
+![](../img/05.JPG)
 
 </div>
 
@@ -830,7 +830,7 @@ public static int partition(int[] n, int lower, int higher)
 ## 합병 정렬
 <div align=center>
 
-![](img/Merge-sort-example-300px.gif)
+![](../img/Merge-sort-example-300px.gif)
 
 </div>
 
@@ -846,7 +846,7 @@ public static int partition(int[] n, int lower, int higher)
 
 <div align=center>
 
-![](img/06.JPG)
+![](../img/06.JPG)
 
 </div>
 
@@ -934,7 +934,7 @@ public static void merge(int[] arr, int[] temp, int start, int mid, int end)
 ## ~~힙 정렬~~(개념만 인지)
 <div align=center>
 
-![](img/Sorting_heapsort_anim.gif)
+![](../img/Sorting_heapsort_anim.gif)
 
 </div>
 
@@ -951,12 +951,12 @@ public static void merge(int[] arr, int[] temp, int start, int mid, int end)
 
 <h2> 삽입 </h2>
 
-![](img/07.JPG)
+![](../img/07.JPG)
 
 <br>
 <h2> 삭제 </h2>
 
-![](img/08.JPG)
+![](../img/08.JPG)
 
 </div>
 

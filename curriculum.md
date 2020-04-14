@@ -3,7 +3,7 @@
 <div align=center>
 
 [![author](https://img.shields.io/badge/author-Inseong--So-informational.svg)](https://github.com/InSeong-So)
-[![people](https://img.shields.io/badge/people-GoodeeACM-brightgreen.svg)](https://github.com/orgs/hcgnine/people)
+~~[![people](https://img.shields.io/badge/people-GoodeeACM-brightgreen.svg)](https://github.com/orgs/hcgnine/people)~~
 
 </div>
 
@@ -15,7 +15,7 @@
 
 <br>
 
-# [1주차-알고리즘과 자료구조의 개요](curriculumn/../curriculum/week_01.md)
+# [1주차-알고리즘과 자료구조의 개요](curriculumn/../curriculum/java/week_01.md)
 
 <br>
 
@@ -23,7 +23,7 @@
 
 <br>
 
-# [2주차-정렬 알고리즘 소개](curriculumn/../curriculum/week_02.md)
+# [2주차-정렬 알고리즘 소개](curriculumn/../curriculum/java/week_02.md)
 
 <br>
 
@@ -31,7 +31,7 @@
 
 <br>
 
-# [3주차-정렬 알고리즘 구현](curriculumn/../curriculum/week_03.md)
+# [3주차-정렬 알고리즘 구현](curriculumn/../curriculum/java/week_03.md)
 
 <br>
 
@@ -39,7 +39,7 @@
 
 <br>
 
-# [4주차-탐색 알고리즘의 구현](curriculumn/../curriculum/week_04.md)
+# [4주차-탐색 알고리즘의 구현](curriculumn/../curriculum/java/week_04.md)
 
 <br>
 
@@ -47,7 +47,7 @@
 
 <br>
 
-# [5주차-스택과 큐 자료구조의 구현](curriculumn/../curriculum/week_05.md)
+# [5주차-스택과 큐 자료구조의 구현](curriculumn/../curriculum/java/week_05.md)
 
 <br>
 
@@ -55,7 +55,33 @@
 
 <br>
 
-# [6주차-기초 알고리즘 문제 풀이 1](curriculumn/../curriculum/week_06.md)
+# [6주차-기초 알고리즘 문제 풀이 1](curriculumn/../curriculum/java/week_06.md)
+
+<br>
+
+[뒤로가기](README.md)
+
+<br>
+
+<hr>
+
+# 알고리즘 스터디 커리큘럼2
+
+<div align=center>
+
+[![author](https://img.shields.io/badge/author-Inseong--So-informational.svg)](https://github.com/InSeong-So)
+
+</div>
+
+# 목표
+
+<div align="center" style="color:green; font-weight:bold; font-size:20px;">
+JavaScript로 자료구조를 작성하고 코드의 복잡성을 제거할 수 있다.
+</div>
+
+<br>
+
+# [1주차-알고리즘과 자료구조의 개요](curriculumn/../curriculum/javascript/week_01.md)
 
 <br>
 

@@ -16,7 +16,7 @@
 
 <div align=center>
 
-[![Video](img/01.JPG)](https://www.youtube.com/watch?v=kPRA0W1kECg)
+[![Video](../img/01.JPG)](https://www.youtube.com/watch?v=kPRA0W1kECg)
 
 </div>
 

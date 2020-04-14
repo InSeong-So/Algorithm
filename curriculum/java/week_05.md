@@ -37,7 +37,7 @@
 
 <div align=center>
 
-![](img/11.JPG)
+![](../img/11.JPG)
 
 </div>
 
@@ -444,7 +444,7 @@
 
 <div align=center>
 
-![](img/12.JPG)
+![](../img/12.JPG)
 
 </div>
 
@@ -617,7 +617,7 @@
 
 <div align=center>
 
-![](img/13.JPG)
+![](../img/13.JPG)
 
 </div>
 
@@ -800,11 +800,11 @@
 ## 스택과 큐의 개념 이해
 <div align=center>
 
-![](img/14.JPG)
+![](../img/14.JPG)
 
-![](img/15.JPG)
+![](../img/15.JPG)
 
-![](img/16.JPG)
+![](../img/16.JPG)
 
 </div>
 

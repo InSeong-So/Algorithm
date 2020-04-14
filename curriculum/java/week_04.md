@@ -47,7 +47,7 @@
 
 <div align=center>
 
-![](img/09.JPG)
+![](../img/09.JPG)
 
 </div>
 
@@ -117,7 +117,7 @@
 
 <div align=center>
 
-![](img/10.JPG)
+![](../img/10.JPG)
 
 </div>
 
@@ -156,7 +156,7 @@
 ## 선형 검색과 이진 검색의 비교
 <div align=center>
 
-![](img/binarysearch.gif)
+![](../img/binarysearch.gif)
 
 </div>
 
