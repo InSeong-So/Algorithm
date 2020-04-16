@@ -4,7 +4,7 @@
  * 내장 함수 2차(map, filter, find, keys, concat, flat, entries, includes)
  */
 
-var fruits = ["영어", "과학", "사회/생활", "국어", "수학", "체육"];
+const fruits = ["영어", "과학", "사회/생활", "국어", "수학", "체육"];
 
 fruits.push("한문");
 console.log(fruits.pop());
@@ -17,6 +17,6 @@ console.log(fruits.indexOf("국어"));
 console.log(fruits.shift());
 console.log(fruits.splice(0, 1));
 console.log(fruits);
-var FruitsCopy = fruits.slice();
+const FruitsCopy = fruits.slice();
 console.log(fruits);
 console.log(FruitsCopy);
