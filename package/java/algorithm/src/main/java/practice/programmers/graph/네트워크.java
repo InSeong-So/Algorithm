@@ -1,8 +1,5 @@
 package practice.programmers.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 public class 네트워크
 {
     public int solution(int n, int[][] computers)
@@ -34,12 +31,5 @@ public class 네트워크
             }
         }
         return check;
-    }
-    
-    @Test
-    public void 정답()
-    {
-        Assert.assertEquals(2, solution(3, new int[][] { { 1, 1, 0 }, { 1, 1, 0 }, { 0, 0, 1 } }));
-        Assert.assertEquals(1, solution(3, new int[][] { { 1, 1, 0 }, { 1, 1, 1 }, { 0, 1, 1 } }));
     }
 }
