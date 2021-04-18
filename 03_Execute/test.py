@@ -1,8 +1,7 @@
-def euclid2(m, n):
-    if n == 0:
-        return m
+def sum(n, array):
+    if n <= 0:
+        return 0
     else:
-        return euclid2(n, m % n)
+        return sum(n - 1, array) + array[n-1]
 
-# 검증
-print(euclid2(1920, 486))
+print(sum(5, [1, 2, 3, 4, 5]))
