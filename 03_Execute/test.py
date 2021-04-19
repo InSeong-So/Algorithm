@@ -1,7 +1,27 @@
-def sum(n, array):
-    if n <= 0:
-        return 0
-    else:
-        return sum(n - 1, array) + array[n-1]
+N = 8
 
-print(sum(5, [1, 2, 3, 4, 5]))
+cols = [0 for i in range(N + 1)]
+
+def queens(level):
+    if not promising(level):
+        return False
+    elif level == N:
+        for i in range(1, N):
+            print("(" + i + ", " + cols[i] + ")")
+        return True
+        
+    for i in range(1, N):
+        cols[level + 1] = i
+        if queens(level + 1):
+            return True
+    return False
+
+def promising(level):
+    for i in range(1, level):
+        if cols[i] == cols[level]:
+            return False
+        elif level - i == abs(cols[level] - cols[i]):
+            return False
+    return True
+
+print(queens(0))

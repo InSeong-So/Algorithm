@@ -496,3 +496,162 @@ print(euclid2(180, 8))
                      + countCells(x + 1, y) + countCells(x - 1, y - 1)
                      + countCells(x, y - 1) + countCells(x + 1, y - 1)
     ```
+
+<br>
+
+### N-Queens
+- 문제 정의
+<div align=center>
+
+<h4>N의 크기를 가진 체스판에서 퀸을 배치하기</h4>
+
+<img src="./img/03.JPG" width="400">
+
+<p>퀸의 위치는 움직일 수 있는 경로가 겹치면 안 된다.</p>
+
+</div>
+
+<br>
+
+- 사고하기 1 : 퀸을 놓기 위해서는?
+    > **되찾기 기법(Back Tracking)** : 최근에 내렸던 결정을 번복하고 다른 선택을 하는 방식을 반복하여 해결한다.
+    1. 크기 N인 체스판에서 퀸의 위치는 (x, y)라고 가정하자. (0, 0) 위치에 퀸을 배치한 뒤 동선이 겹치지 않는 위치에 다음 퀸을 배치한다.
+    2. 첫 번째, 두 번째 퀸을 배치한 위치에 따라 세 번째 말을 놓을 수 있는 위치가 달라진다.
+    3. 만약 세 번째 퀸을 배치할 수 없는 상황이라면, 그 전에 움직였던 퀸을 새로 배치해야 한다.
+
+<br>
+
+- 사고하기 2 : 시각화
+<div align=center>
+
+<h4>상태공간 트리</h4>
+
+<img src="./img/04.JPG" width="500">
+
+<p>찾고자 하는 해를 포함하는 트리</p>
+<p>해가 존재한다면 반드시 트리의 한 노드에 해당하므로 트리를 체계적으로 탐색하면 해를 구할 수 있다.</p>
+
+</div>
+
+<br>
+
+- 사고하기 3 : 따라가기
+    1. 상태공간트리의 모든 노드를 탐색할 필요는 없다.
+    2. 전부 퀸을 놓을 수 없는 위치 같은 조건에 부합하지 않는다면 하위 노드까지 확인하지 않아도 된다.
+    3. non-promising : infeasible한가? 이미 퀸이 충돌되어 더 이상 확인할 필요가 없는 노드인가를 판단하는 척도를 통해 선택과 탐색에 걸리는 시간을 단축할 수 있다.
+    4. 즉, 가장 깊은 노드(퀸을 놓을 수 있는 위치가 많은 하위 트리)를 우선 탐색한다.
+
+<br>
+
+- 사고하기 4 : pseudo code 작성하기
+    > Back Tracking을 구현하는 두 가지 방법은 Recursion과 Stack 자료구조를 사용하는 것이다.
+    > - 일반적으로 Recursion이 간단하기 때문에 이 방법으로 많이 해결한다.
+    
+    <br>
+
+    ```py
+    # 말이 놓인 위치를 기록할 전역 변수를 선언한다.
+    cols[] = size [N+1]
+    # 매개변수에는 현재 트리의 어떤 노드에 있는지 지정해야 한다.
+    # 따라서 매개변수 level은 현재 노드의 레벨을 표현한다.
+    # cols[i] = j는 i번 말이 (i행, j열)에 놓였음을 의미한다.
+    boolean queens(level)
+        # 1부터 level까지 놓을 퀸의 위치는 정해졌다라는 매개변수로,
+        # 그 위치는 전역변수 cols에 기록한다.
+
+        # 실패 : 이미 탐색할 가치가 없는 노드이므로 하위 트리까지 탐색하지 않는다.
+        '''
+        if non-promising
+            report failure and return
+        '''
+        if !promising(level)
+            return false
+        # 성공 : 찾고 있던 답인지 확인한다.
+        # promising 테스트를 통과했다는 가정 하에 level == N이면 모든 말이 놓였다는 의미이다.
+        '''
+        else if success
+            report answer and return
+        '''
+        else if level == N
+            return true
+        # 재귀적으로 자식 노드를 탐색한다.
+        # level + 1 번째 퀸을 각 열에 배치하고 recursion을 호출한다.
+        '''
+        else
+            visit children recursively
+        '''
+        for i in range(1, N)
+            cols[level + 1] = i
+            if queens(level + 1)
+                return true
+        return false
+    ```
+
+<br>
+
+- 사고하기 5 : pseudo code를 분할하여 생각하기
+    > Promising Test
+    <div align=center>
+
+    <img src="./img/05.JPG" width="500">
+
+    </div>
+
+    <br>
+
+    ```py
+    boolean promising(level)
+        for i in range(1, level)
+            # 같은 열에 놓여 있는지 검사
+            if cols[i] == cols[level]
+                return false
+            # 같은 대각선에 놓여 있는지 검사
+            '''
+            else if on the same diagonal
+                return false
+            '''
+            else if level - i == abs(cols[level] - cols[i])
+                return false
+        return true
+    ```
+
+    <br>
+
+    <div align=center>
+
+    <img src="./img/06.JPG" width="500">
+
+    <p>두 개의 퀸이 동일한 대각선이라는 말은 인접한 좌표의 거리가 같다는 것</p>
+    <p>대각선은 반대일 수도 있으니 절대값을 계산한다.</p>
+
+    </div>
+
+    <br>
+
+- 문제 해결
+    ```py
+    # 주어진 체스판의 크기
+    N = 8
+    def queens(level):
+        if !promising(level):
+            return False
+        elif level == N:
+            for i in range(1, N):
+                print("(" + i + ", " + cols[i] + ")")
+            return True
+        
+        for i in range(1, N):
+            cols[level + 1] = i
+            if queens(level + 1):
+                return True
+        
+        return False
+
+    def promising(level):
+        for i in range(1, n):
+            if cols[i] == cols[level]:
+                return False
+            elif level - i == abs(cols[level] - cols[i]):
+                return False
+        return True
+    ```
