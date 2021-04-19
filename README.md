@@ -347,7 +347,7 @@ print(euclid2(180, 8))
 
 <br>
 
-- 문제 정의
+- 문제 해결
     ```py
     # 미로의 크기
     N = 8
@@ -388,6 +388,111 @@ print(euclid2(180, 8))
             return False
 
 
+    print(maze)
     # 첫 번째 좌표 호출로 시작
     findMazePath(0, 0)
+    print(maze)
+    ```
+
+<br>
+
+- 결과
+
+<div align=center>
+
+<img src="./img/01.JPG" width="400">
+
+</div>
+
+<br>
+
+### Counting Cells in a Blob
+- 문제 정의
+<div align=center>
+
+<h4>[5, 1, 5, 13] 사이즈의 4개 Blob</h4>
+
+<img src="./img/02.JPG" width="400">
+
+<p>Binary 이미지이며, 서로 연결된 픽셀의 집합을 Blob이라 부른다.</p>
+    <p>상하좌우 및 대각선도 연결된 것으로 간주한다.</p>
+
+</div>
+
+<br>
+
+- 사고하기 1 : 현재 픽셀(x, y)이 속한 Blob의 크기를 카운트하기 위해서는?
+    1. 현재 픽셀이 image color가 아니라면 0을 반환한다.
+    2. 현재 픽셀이 image color라면 먼저 현재 픽셀을 카운트한다(count=1).
+    3. 현재 픽셀이 중복 카운트 되는 것을 방지하기 위해서 다른 색으로 칠한다.
+    4. 현재 픽셀에 이웃한 모든 픽셀들에 대해 그 픽셀이 속한 Blob의 크기를 카운트하여 기존 카운트에 더한다.
+    5. 카운트를 반환한다.
+
+<br>
+
+- 사고하기 2 : 따라가기
+    1. `x = 5, y = 3`이라 가정하고 해당 픽셀이 포함된 Blob의 크기를 계산해보자.
+    2. `count`는 `0`으로 `초기화`한다.
+    3. 현재 cell을 `중복 카운트되는 것을 방지하기 위해 다른 색`으로 칠하고 `count를 1 증가`한다.
+    4. 인접한 8개의 픽셀 각각에 대해 순서대로 그 픽셀이 포함된 Blob의 크기를 count한다. `시계 방향(북, 북동, 동...)`으로 고려한다.
+    5. 북쪽 픽셀이 포함된 Blob의 크기는 0이므로 count 값은 변하지 않는다.
+    6. 북동쪽 픽셀이 속한 Blob을 count하고, count 된 픽셀들을 색칠한다.
+    7. 3개의 픽셀이 Blob에 속한다. 즉 count는 `1 + 3 = 4`이다.
+    8. 동쪽과 남동쪽 픽셀이 포함된 Blob의 크기는 0이므로 count 값은 변하지 않는다.
+    9. 남쪽 픽셀이 속한 Blob을 count하고, count 된 픽셀들을 색칠한다.
+    10. 9개의 픽셀이 Blob에 속한다. 즉 count는 `4 + 9 = 13`이다.
+    11. 남서, 서, 북서 방향의 픽셀이 속한 Blob은 없거나 혹은 이미 count 되었다.
+    12. 최종적으로 x = 5, y = 3의 픽셀이 가진 Blob의 크기는 13이다.
+
+<br>
+
+- 사고하기 3 : pseudo code 작성하기
+    ```py
+    Algorithm for countCells(x, y)
+        if the pixel(x, y) is outside the grid
+            the result is 0
+        else if pixel(x, y) is not an image pixel or already counted
+            the result is 0
+        else
+            # 이미 카운트 되었음을 표시한다.
+            set the color of the pixel(x, y) to a red color
+            the result is 1 plus the number of cells in each piece of
+                the blob that includes a nearest neighbour
+    ```
+
+<br>
+
+- 문제 해결
+    ```py
+    # 주어진 그리드의 크기
+    N = 8
+    # Blob이 아닌 픽셀
+    BACKGROUND_COLOR = 0
+    # Blob인 픽셀
+    IMAGE_COLOR = 1
+    # 이미 횟수를 센 픽셀
+    ALREADY_COUNTED = 2
+
+    grid = [
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [0, 1, 1, 0, 0, 1, 0, 0],
+        [1, 1, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 1, 0, 1, 0, 1, 0, 0],
+        [0, 1, 0, 1, 0, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0, 1],
+        [0, 1, 1, 0, 0, 1, 1, 1],
+    ]
+
+    def countCells(x, y):
+        if x < 0 or x >= N or y < 0 or y >= N:
+            return 0
+        elif grid[x][y] != IMAGE_COLOR:
+            return 0
+        else:
+            grid[x][y] = ALREADY_COUNTED
+            return 1 + countCells(x - 1, y + 1) + countCells(x, y + 1)
+                     + countCells(x + 1, y + 1) + countCells(x - 1, y)
+                     + countCells(x + 1, y) + countCells(x - 1, y - 1)
+                     + countCells(x, y - 1) + countCells(x + 1, y - 1)
     ```
