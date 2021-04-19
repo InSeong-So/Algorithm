@@ -202,78 +202,192 @@ print(euclid2(180, 8))
 > 최소 하나의 base case(순환되지 않고 종료되는 case)가 존재해야 한다.
 > - 모든 case는 결국 base case로 수렴해야 한다.
 
-<br>
+### 암시적(implicit) 매개변수를 명시적(explicit) 매개 변수로 변환한다.
+- 순차 탐색
+    ```py
+    # 변경 전
+    def search(data, n, target):
+        for i in range(n):
+            if data[i] == target:
+                return i
+        return -1
+    ```
+    - 해당 함수는 data[0]에서 data[n-1] 사이의 target을 검색한다.
+    - 검색 구간의 시작 인덱스 0은 보통 생략되므로 암시적인 매개변수이다.
 
-1. 암시적(implicit) 매개변수를 명시적(explicit) 매개 변수로 변환한다.
-    - 예 : 순차 탐색
-        ```py
-        # 변경 전
-        def search(data, n, target):
-            for i in range(n):
-                if data[i] == target:
-                    return i
-            return -1
-        ```
-        - 해당 함수는 data[0]에서 data[n-1] 사이의 target을 검색한다.
-        - 검색 구간의 시작 인덱스 0은 보통 생략되므로 암시적인 매개변수이다.
-
-        <br>
-        
-        ```py
-        # 변경 후
-        def search(data, start, end, target):
-            if start > end:
-                return -1
-            else if taret == data[start]:
-                return start
-            else:
-                return search(data, start + 1, end, target)
-        ```
-        - 해당 함수는 data[start]에서 data[end] 사이의 target을 검색한다.
-        - 검색 구간의 시작점을 명시적으로 지정한다.
-        - `search(data, 0, len(data) - 1, target)`으로 호출하면 변경 전의 함수와 동일하게 작동한다.
-
-        <br>
-
-        ```py
-        # 다른 버전 : binary search와는 다름
-        def search(data, start, end, target):
-            if start > end:
-                return -1
-            else:
-                middle = (start + end) // 2
-                if data[middle] == target:
-                    return middle
-                index = search(data, start, middle - 1, target)
-                if index != -1:
-                    return index
-                else:
-                    return search(data, middle + 1, end, target)
-        ```
+    <br>
     
+    ```py
+    # 변경 후
+    def search(data, start, end, target):
+        if start > end:
+            return -1
+        elif taret == data[start]:
+            return start
+        else:
+            return search(data, start + 1, end, target)
+    ```
+    - 해당 함수는 data[start]에서 data[end] 사이의 target을 검색한다.
+    - 검색 구간의 시작점을 명시적으로 지정한다.
+    - `search(data, 0, len(data) - 1, target)`으로 호출하면 변경 전의 함수와 동일하게 작동한다.
+
     <br>
 
-    - 예 : 최댓값 찾기
-        ```py
-        def findMax(data, start, end):
-            if start == end:
-                return data[start]
+    ```py
+    # 다른 버전 : binary search와는 다름
+    def search(data, start, end, target):
+        if start > end:
+            return -1
+        else:
+            middle = (start + end) // 2
+            if data[middle] == target:
+                return middle
+            index = search(data, start, middle - 1, target)
+            if index != -1:
+                return index
             else:
-                return max(data[start], findMax(data, start + 1, end))
-        ```
-        - 해당 함수는 data[start]에서 data[end] 사이의 최댓값을 찾아 반환한다.
-            - `start <= end`라고 가정한다.
+                return search(data, middle + 1, end, target)
+    ```
 
-        <br>
+<br>
 
-        ```py
-        # 다른 버전
-        def findMax(data, start, end):
-            if start == end:
-                return data[start]
-            else:
-                middle = (start + end) // 2
-                max1 = findMax(data, start, middle)
-                max2 = findMax(data, middle + 1, end)
-                return max(max1, max2)
-        ```
+- 최댓값 찾기
+    ```py
+    def findMax(data, start, end):
+        if start == end:
+            return data[start]
+        else:
+            return max(data[start], findMax(data, start + 1, end))
+    ```
+    - 해당 함수는 data[start]에서 data[end] 사이의 최댓값을 찾아 반환한다.
+        - `start <= end`라고 가정한다.
+
+    <br>
+
+    ```py
+    # 다른 버전
+    def findMax(data, start, end):
+        if start == end:
+            return data[start]
+        else:
+            middle = (start + end) // 2
+            max1 = findMax(data, start, middle)
+            max2 = findMax(data, middle + 1, end)
+            return max(max1, max2)
+    ```
+
+<br>
+<hr>
+<br>
+
+## Recursion 응용
+### 미로 찾기
+> 현재 위치에서 출구까지 가는 경로 찾기
+1. 현재 위치가 출구여야 한다.
+2. 1이 아니라면 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까지 가는 경로가 있어야 한다.
+
+<br>
+
+- 첫 번째 설계 : 방문한 장소를 재방문하여 무한 루프에 빠질 수 있음
+    ```py
+    boolean findPath(x, y)
+        # 현재 위치가 출구라면 True
+        if(x, y) is the exit
+            return True
+        else
+            # 이웃한 셀을 검사
+            for each neighbouring cell (x', y') of (x, y) do
+                ## 이웃한 셀이 통로라면 검사, 아니라면 False
+                if(x', y') is on then pathway
+                    if findPath(x', y')
+                        return True
+            return False
+    ```
+
+<br>
+
+- 두 번째 설계 : 검사한 위치를 저장하여 무한 루프를 방지
+    ```py
+    boolean findPath(x, y)
+        # 현재 위치가 출구라면 True
+        if(x, y) is the exit
+            return True
+        else
+            # 검사한 위치를 마크(저장)
+            mark(x, y) as a visited cell
+            # 이웃한 셀을 검사
+            for each neighbouring cell (x', y') of (x, y) do
+                ## 이웃한 셀이 통로이고 방문하지 않았다면 검사, 아니라면 False
+                if(x', y') is on then pathway and not visited
+                    if findPath(x', y')
+                        return True
+            return False
+    ```
+
+<br>
+
+- 세 번째 설계 : 함수는 더 많이 호출하나 코드는 간결해짐
+    ```py
+    boolean findPath(x, y)
+        ## 이웃한 셀이 통로이고 방문하지 않았다면 검사, 아니라면 False
+        if(x, y) is either on the wall or a visited cell
+            return False
+        # 현재 위치가 출구라면 True
+        else if(x, y) is the exit
+            return True
+        else
+            # 검사한 위치를 마크(저장)
+            mark(x, y) as a visited cell
+            # 이웃한 셀을 검사
+            for each neighbouring cell (x', y') of (x, y) do
+                if findPath(x', y')
+                    return True
+            return False
+    ```
+
+<br>
+
+- 문제 정의
+    ```py
+    # 미로의 크기
+    N = 8
+    # 통로
+    PATHWAY_VALUE = 0
+    # 벽
+    WALL_VALUE = 1
+    # 방문(검사)했으며 출구까지의 경로에 있지 않다고 판별된 CELL
+    BLOCKED_VALUE = 2
+    # 방문(검사)했으며 아직 출구로 가는 경로가 될 가능성이 있는 CELL
+    PATH_VALUE = 3
+
+    maze = [
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 1, 1, 0, 1, 1, 0, 1],
+        [0, 0, 0, 1, 0, 0, 0, 1],
+        [0, 1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 1, 0, 0, 1, 1],
+        [0, 1, 0, 0, 0, 1, 0, 1],
+        [0, 0, 0, 1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0, 1, 0, 0],
+    ]
+    
+    def findMazePath(x, y):
+        # x-1, y-1 등 검사하므로 x, y의 음수 여부를 체크하는 로직이 필요
+        if x < 0 or y < 0 or x >= N or y>= N:
+            return False
+        elif maze[x][y] != PATHWAY_VALUE:
+            return False
+        elif x == N - 1 and y == N - 1:
+            maze[x][y] = PATH_VALUE
+            return True
+        else:
+            maze[x][y] = PATH_VALUE
+            if findMazePath(x - 1, y) or findMazePath(x, y + 1) or findMazePath(x + 1, y) or findMazePath(x, y - 1):
+                return True
+            maze[x][y] = BLOCKED_VALUE
+            return False
+
+
+    # 첫 번째 좌표 호출로 시작
+    findMazePath(0, 0)
+    ```
