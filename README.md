@@ -671,3 +671,128 @@ print(euclid2(180, 8))
 
     queens(0)
     ```
+
+<br>
+
+### 멱집합(powerSet)
+> 어떤 집합의 모든 부분 집합
+
+- 사고하기 1 : 임의의 집합 data의 모든 부분 집합을 구하기 위해서는?
+    1. `data = {a, b, c, d, e, f}`의 집합이 가질 수 있는 모든 부분 집합을 구한다.
+    2. 부분 집합의 케이스는 원소를 포함하지 않는 경우와 원소를 포함하는 경우로 나뉜다.
+    3. 따라서 2의 6제곱으로 64이다.
+
+<br>
+
+- 사고하기 2 : 따라가기
+    1. `{a, b, c, d, e, f}`의 모든 부분 집합을 나열하려면 :
+        - `{b, c, d, e, f}의 모든 부분 집합`에 `a를 추가한 집합`들을 나열한다.
+    2. `{b, c, d, e, f}`의 모든 부분 집합에 a를 추가한 집합들을 나열하려면 :
+        - `{c, d, e, f}의 모든 부분 집합`에 `a를 추가한 집합`들을 나열한다.
+        - `{c, d, e, f}의 모든 부분 집합`에 `a, b를 추가한 집합`들을 나열한다.
+    3. `{c, d, e, f}`의 모든 부분 집합에 a를 추가한 집합들을 나열하려면 :
+        - `{d, e, f}의 모든 부분 집합`에 `a를 추가한 집합`들을 나열한다.
+        - `{d, e, f}의 모든 부분 집합`에 `a, c를 추가한 집합`들을 나열한다.
+
+<br>
+
+- 사고하기 3 : pseudo code 작성하기
+    ```py
+    # S의 멱집합을 출력하기
+    powerSet(S)
+        # S가 공집합이라면 아무것도 출력하지 않는다.
+        if S is an empty set
+            print nothing
+        else
+            # S의 첫 번째 원소 t에 대해서
+            let t be the first element of s;
+            # 이 역에서 t를 제거한 모든 원소의 집합을 재귀적으로 구한다.
+            find all subsets of S-{t} by calling powerSet(S-{t})
+            # 해당 부분집합을 출력한다.
+            print the subsets
+            # 해당 부분집합에 t를 추가하여 출력한다.
+            print the subsets with adding t
+    ```
+    - 이 의사 코드의 poserSet은 여러 집합을 return 한다. 그럼 어떻게 해야 하는가?
+    
+    <br>
+
+    ```py
+    # S의 멱집합을 구한 뒤 집합 P에 합집합하여 출력하기
+    powerSet(P, S)
+        # S가 공집합이라면 P를 그대로 출력한다.
+        if S is an empty set
+            print P
+        else
+            # S의 첫 번째 원소 t에 대해서
+            let t be the first element of S
+            # 집합 P와 S에서 t 원소를 제거한 집합을 재귀적으로 호출
+            powerSet(P, S-{t})
+            # 집합 P에 원소 t를 합치고 S에서 t 원소를 제거한 집합을 재귀적으로 호출
+            powerSet(Pu{t}, S-{t})
+    ```
+    - 정의한 멱집합을 해결하기 위해선 recursion 함수가 두 집합을 매개변수로 받도록 설계해야 한다.
+        - 두 번째 집합의 모든 부분 집합들에 첫 번째 집합을 합집합하여 출력한다.
+
+    <br>
+    
+    - 상단의 `{c, d, e, f}의 모든 부분 집합에 a, b를 추가한 집합들을 나열한다.`라는 사고의 해석은 이렇다.
+        - {c, d, e, f} : `집합 S`로 `k번째부터 마지막 원소까지` 연속된 원소
+        - {a, b} : `집합 P`로 `처음부터 k - 1번째` 원소들 중 일부
+    
+    <br>
+
+    - 시각화 해보기
+
+        <div align=center>
+
+        <img src="./img/07.JPG" width="500">
+
+        <p>boolean 배열로 표기한다.</p>
+
+        </div>
+
+<br>
+
+- 문제 해결
+    ```py
+    # 부분 집합을 구할 원소 배열
+    data = ['a', 'b', 'c', 'd', 'e', 'f']
+    # 주어진 원소 배열의 길이
+    N = len(data)
+    # 트리 상에서 현재 자신의 위치를 표현하는 배열
+    include = [False] * N
+
+    # data[k]...data[N-1]의 멱집합을 구한 뒤 include 배열의 true인 원소를 출력
+    def powerSet(K:int): # K : 트리 상에서 현재 자신의 위치를 표현
+        # 만약 현재 자신의 위치가 리프 노드라면
+        if K == N:
+            for i in range(N):
+                if include[i]:
+                    print(data[i], end=" ")
+            print("")
+            return
+        # data[k], 즉 집합 S의 첫 번째 원소를 포함하지 않는 경우
+        include[K] = False
+        powerSet(K + 1) # 먼저 왼쪽으로 내려간다.
+        # data[k], 즉 집합 S의 첫 번째 원소를 포함하는 경우
+        include[K] = True
+        powerSet(K + 1) # 그 후엔 오른쪽으로 내려간다.
+
+    # 처음 함수를 호출할 때 0으로 호출한다. P는 공집합, S는 전체 집합이다.
+    powerSet(0)
+    ```
+
+    <br>
+
+    - 시각화 해보기
+        <div align=center>
+
+        <img src="./img/08.JPG" width="500">
+
+        <h4>[ 정의 ]</h4>
+        <p>해를 찾기 위해 탐색할 필요가 있는 모든 후보들을 포함하는 트리</p>
+        <p>트리의 모든 노드들을 방문하면 해를 찾을 수 있다.</p>
+        <p>루트에서 출발하여 체계적으로 모든 노드를 방문하는 절차를 기술한다.</p>
+
+        </div>
