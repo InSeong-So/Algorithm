@@ -22,7 +22,7 @@ def solution():
 ### n까지 더하기
 ```py
 # 0 ~ n 까지의 합을 구하기
-def recursionSum(n):
+def recursionSum(n:int):
     # 종료조건 : n이 0이라면 0을 반환한다.
     if n == 0:
         return 0
@@ -39,7 +39,7 @@ print(recursionSum(4))
 ### Factorial : n!
 ```py
 # 1 ~ n까지의 곱 구하기
-def factorial(n):
+def factorial(n:int):
     # 종료조건 : n이 0이라면 1을 반환한다.
     if n == 0:
         return 1
@@ -56,7 +56,7 @@ print(factorial(4))
 ### n의 x제곱 구하기
 ```py
 # n의 x제곱 구하기
-def power(n, x):
+def power(n:int, x:int):
     # 종료조건 : n이 0이라면 1을 반환한다.
     if n == 0:
         return 1
@@ -73,7 +73,7 @@ print(power(4, 3))
 ### Fibonacci Number
 ```py
 # 피보나치 수 구하기
-def fibonacci(n):
+def fibonacci(n:int):
     # 종료조건 : n - 2가 0보다 작아질 경우 2를 반환한다.
     if n < 2:
         return n
@@ -91,7 +91,7 @@ print(fibonacci(4))
 ```py
 # m >= n인 두 양의 정수 m과 n에 대해 m이 n의 배수이면 euclid(m, n) = n이다.
 # 그렇지 않다면 euclid(m, n) = euclid(n, m % n)이다.
-def euclid(m, n):
+def euclid(m:int, n:int):
     # m 이 n 보다 크다면 임시 변수를 통해 값을 치환한다.
     if m < n:
         t = m
@@ -110,7 +110,7 @@ print(euclid(180, 8))
 ```
 ```py
 # 단순한 버전
-def euclid2(m, n):
+def euclid2(m:int, n:int):
     if n == 0:
         return m
     else:
@@ -136,36 +136,45 @@ print(euclid2(180, 8))
         return 1 plus the length of ther string that 
         excludes the first character
     '''
-    def legnth(str):
+    def length(str:str):
         if str == "":
             return 0
         else:
             return 1 + length(str[1:])
+    
+    # 검증
+    print(length("test"))
     ```
 
 - 문자열 출력
     ```py
-    def printChars(str):
+    def printString(str:str):
         if len(str) == 0:
             return
         else:
             print(str[:1], end="")  # 아래와 비교 1
-            printChars(str[1:]) # 아래와 비교 2
+            printString(str[1:]) # 아래와 비교 2
+
+    # 검증
+    printString("test")
     ```
 
 - 문자열을 뒤집어 프린트
     ```py
-    def printCharReverse(str):
+    def printStringReverse(str:str):
         if len(str) == 0:
             return
         else:
-            printCharReverse(str[1:])
+            printStringReverse(str[1:])
             print(str[:1], end="")
+
+    # 검증
+    printStringReverse("test")
     ```
 
 - 2진수로 변환하여 출력하기 : 음이 아닌 정수 n을 이진수로 변환하여 출력
     ```py
-    def printInBinary(n):
+    def printInBinary(n:int):
         if n < 2:
             print(n, end="")
         else:
@@ -173,15 +182,21 @@ print(euclid2(180, 8))
             printInBinary(n // 2)
             # n을 2로 나눈 나머지를 인쇄
             print(n % 2, end="")
+    
+    # 검증
+    printInBinary(5)
     ```
 
 - 배열의 합 구하기
     ```py
-    def sum(n, array):
+    def sum(n:int, list):
         if n <= 0:
             return 0
         else:
-            return sum(n - 1, array) + array[n-1]
+            return sum(n - 1, list) + list[n-1]
+    
+    # 검증
+    print(sum(5, [1,2,3,4,5]))
     ```
 
 <br>
@@ -253,11 +268,14 @@ print(euclid2(180, 8))
 
 - 최댓값 찾기
     ```py
-    def findMax(data, start, end):
+    def findMax(data, start:int, end:int):
         if start == end:
             return data[start]
         else:
             return max(data[start], findMax(data, start + 1, end))
+            
+    # 검증
+    print(findMax([1, 5, 4, 3, 2], 0, 4))
     ```
     - 해당 함수는 data[start]에서 data[end] 사이의 최댓값을 찾아 반환한다.
         - `start <= end`라고 가정한다.
@@ -266,7 +284,7 @@ print(euclid2(180, 8))
 
     ```py
     # 다른 버전
-    def findMax(data, start, end):
+    def findMax(data, start:int, end:int):
         if start == end:
             return data[start]
         else:
@@ -274,6 +292,9 @@ print(euclid2(180, 8))
             max1 = findMax(data, start, middle)
             max2 = findMax(data, middle + 1, end)
             return max(max1, max2)
+
+    # 검증
+    print(findMax([1, 5, 4, 3, 2], 0, 4))
     ```
 
 <br>
@@ -371,7 +392,7 @@ print(euclid2(180, 8))
         [0, 1, 1, 1, 0, 1, 0, 0],
     ]
     
-    def findMazePath(x, y):
+    def findMazePath(x:int, y:int):
         # x-1, y-1 등 검사하므로 x, y의 음수 여부를 체크하는 로직이 필요
         if x < 0 or y < 0 or x >= N or y>= N:
             return False
@@ -484,17 +505,20 @@ print(euclid2(180, 8))
         [0, 1, 1, 0, 0, 1, 1, 1],
     ]
 
-    def countCells(x, y):
+    def countCells(x: int, y: int):
         if x < 0 or x >= N or y < 0 or y >= N:
             return 0
         elif grid[x][y] != IMAGE_COLOR:
             return 0
         else:
             grid[x][y] = ALREADY_COUNTED
-            return 1 + countCells(x - 1, y + 1) + countCells(x, y + 1)
-                     + countCells(x + 1, y + 1) + countCells(x - 1, y)
-                     + countCells(x + 1, y) + countCells(x - 1, y - 1)
-                     + countCells(x, y - 1) + countCells(x + 1, y - 1)
+            return 1 + countCells(x - 1, y + 1) + countCells(x, y + 1) \
+                + countCells(x + 1, y + 1) + countCells(x - 1, y) \
+                + countCells(x + 1, y) + countCells(x - 1, y - 1) \
+                + countCells(x, y - 1) + countCells(x + 1, y - 1)
+    
+    # 검증
+    print(countCells(4, 3))
     ```
 
 <br>
@@ -631,11 +655,12 @@ print(euclid2(180, 8))
 - 문제 해결
     ```py
     # 체스판의 크기
-    N : int = 8
+    N: int = 8
     # 퀸의 위치를 저장할 배열 선언 / 초기화
     cols = [0] * (N + 1)
 
-    def queens(level:int):
+
+    def queens(level: int):
         # 이미 퀸이 존재하거나, 퀸의 경로가 있는지 검증한다.
         if not promising(level):
             return False
@@ -657,7 +682,8 @@ print(euclid2(180, 8))
             # False가 반환되는 경우는 promising-검증에서 걸렸을 때이다.
             return False
 
-    def promising(level:int):
+
+    def promising(level: int):
         # 단계만큼 순회한다.
         for i in range(1, level):
             # 퀸의 위치가 저장된 배열에 해당 단계의 퀸 위치가 존재하면 중지한다.
@@ -668,6 +694,7 @@ print(euclid2(180, 8))
                 return False
         # 검증 단계에서 통과한다면 퀸을 배치할 수 있다.
         return True
+
 
     queens(0)
     ```
@@ -796,3 +823,6 @@ print(euclid2(180, 8))
         <p>루트에서 출발하여 체계적으로 모든 노드를 방문하는 절차를 기술한다.</p>
 
         </div>
+
+# 참조
+- [부경대학교 공개 강의](http://www.kocw.net/home/search/kemView.do?kemId=1148815) 
