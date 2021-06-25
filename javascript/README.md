@@ -74,3 +74,14 @@ function array_test(){
 
 ## replace를 replaceAll처럼 사용하기
 자바스크립트에는 `replaceAll` 함수가 없다. 이를 정규식을 이용하여 `replace` 함수를 replaceAll 처럼 쓴다.
+
+## 문자열 자르기 : substr, substring
+- `substr(시작인덱스, 길이)`
+- `substring(시작인덱스, 종료인덱스)`
+
+## 문자열에 문자/단어가 포함되었는지 확인하기
+- `indexOf` : 포함하고 있는 문자의 인덱스를 반환한다. `ES6의 `includes`도 동일하다.
+
+## 배열에서 중복제거하기
+1. `Set`
+2. `filter`
