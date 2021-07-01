@@ -16,6 +16,7 @@
 
 // ▣ 출력예제 1
 // YES
+
 function solution(s) {
   let answer = 'YES';
   let goal = Math.floor(s.length / 2);
@@ -26,6 +27,16 @@ function solution(s) {
       answer = 'NO';
       break;
     }
+  }
+  return answer;
+}
+
+// 배열로 풀이하기
+function solution2(s) {
+  let answer = 'YES';
+  s = s.toLowerCase;
+  if (s.split('').reverse().join('') !== s) {
+    return 'NO';
   }
   return answer;
 }

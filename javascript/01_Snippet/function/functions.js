@@ -5,7 +5,7 @@
  * @param {*} size
  * @returns
  */
-function permutation(array, size) {
+function permutation(array, size = array) {
   let result = [];
 
   function permute(t, i) {
@@ -33,24 +33,26 @@ function permutation(array, size) {
  * @param {*} size
  * @returns
  */
-function repetitionPermutation(array, size) {
-  let result = [];
+function repetitionPermutation(word = '', solution = [], start = 0) {
+  function swap(array, index1, index2) {
+    [array[index1], array[index2]] = [array[index2], array[index1]];
+  }
+  const array = Array.isArray(word) ? word : Array.from(word);
 
-  function repetitionPermute(t, sz) {
-    if (t.length === sz) {
-      result.push(t);
-      return;
-    }
-    for (let i = 0; i < array.length; i++) {
-      repetitionPermute(t.concat([array[i]]), sz);
+  if (start === array.length - 1) {
+    // <4>
+    solution.push(array.join(''));
+  } else {
+    for (let index = start; index < array.length; index++) {
+      // <1>
+      swap(array, start, index); // <2>
+      repetitionPermutation(array, solution, start + 1); // <3>
+      swap(array, start, index); // backtrack // <5>
     }
   }
 
-  repetitionPermute([], size);
-
-  return result;
+  return solution;
 }
-
 /**
  * 조합 구하기
  *
@@ -77,13 +79,13 @@ function combination(array) {
   return result;
 }
 
-const array = permutation([1, 2, 3, 4], 3).map(a => {
-  return a.join('');
-});
+// const array = permutation([1, 2, 3, 4], 3).map(a => {
+//   return a.join('');
+// });
 
-const array2 = combination([1, 2, 3, 4]);
-const array3 = repetitionPermutation([1, 2, 3, 4], 4);
+// const array2 = combination([1, 2, 3, 4]);
+// const array3 = repetitionPermutation([1, 2, 3, 4], 4);
 
 // console.log(Math.max(...array));
-// console.log(array2);
-console.log(array3);
+
+module.exports = { permutation, combination, repetitionPermutation };

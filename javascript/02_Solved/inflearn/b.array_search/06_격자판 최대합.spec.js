@@ -26,8 +26,9 @@ N * N의 격자판이 주어지면 각 행의 합, 각 열의 합, 두 대각선
 
 // ▣ 출력예제 1
 // 155
+
 function solution(arr) {
-  let answer = 0;
+  let answer = Number.MIN_SAFE_INTEGER;
 
   let digSum = 0;
 
