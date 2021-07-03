@@ -1,17 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./javascript/*"
-      ],
+      "@snippet/*":["01_Snippet/*"]
     }
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "00_Theory"
   ]
 }

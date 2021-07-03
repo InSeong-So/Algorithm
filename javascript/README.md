@@ -97,4 +97,33 @@ Prime Number를 구하는 알고리즘을 잘 생각해보자.
 
 ## array를 뒤집는 reverse()를 이해하자
 
+## 다차원 정렬
+```js
+array.sort((a, b) => {
+  return a[0] - a[0];
+})
+```
+
+## Parametric Search : 최적 선택지 중에서의 결정
+### 조건
+1. 최댓값/최솟값을 구하는 형식이며 특정 조건이 만족되는가?
+2. `1`이 만족된다면 최댓값을 구할 때는 그보다 작은 값들이, 최솟값을 구할 때는 그보다 큰 값들이 주어진 조건에 만족되어야 한다.
+3. 이분탐색의 확장이므로 범위가 정수형이거나 오차 범위가 주어져야 한다.
+
+## Set()을 통한 배열 중복 제거
+- `indexOf`는 시간 복잡도가 O(n)이므로 loop문 안에서 사용하면 O(n^2)이다.
+  - `Set`을 활용하면 O(nlogn)으로 해결할 수 있다.
+```js
+// 선언
+let set = new Set();
+// Set to Array
+let array = [...set];
+// 또는
+array = Array.form(set);
+// 또는
+set.forEach(v => array.push(v));
+// 또는
+array = [v for (v of set)];
+```
+
 ## BFS, DFS 구현하기
