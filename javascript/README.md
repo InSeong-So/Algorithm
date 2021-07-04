@@ -1,4 +1,4 @@
-# Javscript for Alogrithms
+# Javscript for Alogrithms : Theory
 > 사용 언어 : Javscript
 
 ## 조건문(if, else if, else) 사용하여 풀기
@@ -127,3 +127,24 @@ array = [v for (v of set)];
 ```
 
 ## BFS, DFS 구현하기
+
+# Javscript for Alogrithms : Usage
+## jest
+```js
+// 테스트할 문제명
+describe('', () => {
+  // 테스트할 케이스명
+  it('', () => {
+    let a = [1, 3, 9, 5, 2];
+    let b = [3, 2, 5, 7, 8];
+    expect(solution(a, b)).toEqual([2, 3, 5]);
+  });
+
+  // ... 후략
+  it('', () => {
+    let a = [1, 3, 9, 5, 2];
+    let b = [3, 2, 5, 7, 8];
+    expect(solution(a, b)).toEqual([2, 3, 5]);
+  });
+});
+```
