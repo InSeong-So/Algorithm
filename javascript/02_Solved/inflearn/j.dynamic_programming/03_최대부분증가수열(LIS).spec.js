@@ -19,26 +19,26 @@ N개의 자연수로 이루어진 수열이 주어졌을 때, 그 중에서 가�
 // ▣ 출력예제 1
 // 4
 
+// LIS, 최대 부분 증가수열로 유명함
 function solution(arr) {
-  let answer = 0;
+  // 내가 만드는 증가수열의 길이 값을 저장할 배열
   let dy = Array.from({ length: arr.length }, () => 0);
 
+  // 무조건 만들어질 수 있는 경우의 수가 1이므로 1로 초기화
   dy[0] = 1;
+
   for (let i = 0; i < arr.length; i++) {
     let max = 0;
-    // 앞을 탐색
     for (let j = i - 1; j >= 0; j--) {
-      // 앞의 항이 될 수 있는지 여부를 체크
       if (arr[j] < arr[i] && dy[j] > max) {
         max = dy[j];
       }
     }
     dy[i] = max + 1;
-    answer = Math.max(answer, dy[i]);
   }
 
-  return answer;
+  return Math.max(...dy);
 }
 
 let arr = [5, 3, 7, 8, 6, 2, 9, 4];
-console.log(arr);
+console.log(solution(arr));
