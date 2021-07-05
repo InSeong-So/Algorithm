@@ -1,6 +1,8 @@
 # 빙고
 def solution(board, nums):
 
+    answer = 0
+
     N = len(board)
     nums = set(nums)
 

@@ -1,5 +1,37 @@
+from collections import deque
+
+
+def solution(n, m, images):
+    answer = 0
+
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    for sy in range(n):
+        for sx in range(m):
+            if images[sy][sx] == -1:
+                continue
+
+            target_color = images[sy][sx]
+            queue = deque([(sy, sx)])
+
+            while queue:
+                y, x = queue.popleft()
+
+                for dy, dx in directions:
+                    py = dy + y
+                    px = dx + x
+                    if py >= n or py < 0 or px >= m or px < 0:
+                        continue
+                    if target_color == images[py][px]:
+                        images[py][px] = -1
+                        queue.append((py, px))
+            answer += 1
+
+    return answer
+
+
+##
 # 5: floodfill
-from collection import deque
 
 
 def solution(n, m, image):
@@ -38,3 +70,4 @@ def solution(n, m, image):
                         queue.append((py, px))
 
             answer += 1
+    return answer
