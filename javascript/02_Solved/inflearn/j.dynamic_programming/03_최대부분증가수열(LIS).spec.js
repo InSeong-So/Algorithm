@@ -40,5 +40,24 @@ function solution(arr) {
   return Math.max(...dy);
 }
 
-let arr = [5, 3, 7, 8, 6, 2, 9, 4];
-console.log(solution(arr));
+/**
+ * ========================================================
+ * @Title       : 03_최대부분증가수열(LIS)
+ * @Path        : javascript\02_Solved\inflearn\j.dynamic_programming\03_최대부분증가수열(LIS).spec.js
+ * @Description : LIS 알고리즘
+ * @Date        : 2021-07-06 16:14:56
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('03_최대부분증가수열(LIS)', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let arr = [5, 3, 7, 8, 6, 2, 9, 4];
+    const result = 4;
+
+    // 테스트 결과 정의
+    expect(solution(arr)).toEqual(result);
+  });
+});

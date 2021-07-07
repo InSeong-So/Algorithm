@@ -28,4 +28,23 @@ function solution() {
   return answer;
 }
 
-console.log(solution());
+/**
+ * ========================================================
+ * @Title       : 04_이진트리_넓이우선탐색(BFS)
+ * @Path        : javascript\02_Solved\inflearn\i.graph\04_이진트리_넓이우선탐색(BFS).spec.js
+ * @Description : 그래프 자료구조 - BFS 알고리즘
+ * @Date        : 2021-07-06 16:07:49
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('04_이진트리_넓이우선탐색(BFS)', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    const result = [1, 2, 3, 4, 5, 6, 7];
+
+    // 테스트 결과 정의
+    expect(solution()).toEqual(result);
+  });
+});

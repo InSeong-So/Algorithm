@@ -82,4 +82,25 @@ function solution(s, e) {
   return answer;
 }
 
-console.log(solution(8, 3));
+/**
+ * ========================================================
+ * @Title       : 05_송아지_찾기(BFS)
+ * @Path        : javascript\02_Solved\inflearn\i.graph\05_송아지_찾기(BFS).spec.js
+ * @Description : 그래프 자료구조 - BFS 알고리즘
+ * @Date        : 2021-07-06 16:09:01
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('05_송아지_찾기(BFS)', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let k = 8;
+    let n = 3;
+    const result = 5;
+
+    // 테스트 결과 정의
+    expect(solution(k, n)).toEqual(result);
+  });
+});

@@ -9,6 +9,4 @@ function isPrime(num) {
   return true;
 }
 
-console.log(isPrime(null));
-
 module.exports = isPrime;

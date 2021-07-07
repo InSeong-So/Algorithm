@@ -70,15 +70,68 @@ function solution(n, arr) {
   return answer;
 }
 
-let arr = [
-  [1, 2],
-  [1, 3],
-  [1, 4],
-  [2, 1],
-  [2, 3],
-  [2, 5],
-  [3, 4],
-  [4, 2],
-  [4, 5],
-];
-console.log(solution(5, arr));
+function solution2(n, arr) {
+  let answer = 0;
+
+  let graph = Array.from({ length: n + 1 }, () =>
+    Array.from({ length: n + 1 }, () => 0),
+  );
+  let check = Array.from({ length: n + 1 }, () => 0);
+
+  for (let [a, b] of arr) {
+    graph[a][b] = 1;
+  }
+
+  function DFS(v, n) {
+    if (v === n) {
+      answer++;
+    } else {
+      for (let i = 1; i <= n; i++) {
+        if (graph[v][i] === 1 && check[i] === 0) {
+          check[i] = 1;
+          DFS(i, n);
+          check[i] = 0;
+        }
+      }
+    }
+  }
+
+  check[1] = 1;
+  DFS(1, n);
+
+  return answer;
+}
+
+/**
+ * ========================================================
+ * @Title       : 01_경로탐색(DFS-인접행렬)
+ * @Path        : javascript\02_Solved\inflearn\i.graph\01_경로탐색(DFS-인접행렬).spec.js
+ * @Description : 그래프 자료구조 - DFS 알고리즘
+ * @Date        : 2021-07-06 16:04:11
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('01_경로탐색(DFS-인접행렬)', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+
+    let arr = [
+      [1, 2],
+      [1, 3],
+      [1, 4],
+      [2, 1],
+      [2, 3],
+      [2, 5],
+      [3, 4],
+      [4, 2],
+      [4, 5],
+    ];
+
+    const result = 6;
+
+    // 테스트 결과 정의
+    expect(solution2(5, arr)).toEqual(result);
+  });
+});

@@ -27,7 +27,7 @@
       "    // 파라미터 정의",
       "    let k = 0;",
       "    let arr = [0, 'a'];",
-      "    let result = 1000;",
+      "    const result = 1000;",
       "",
       "    // 테스트 결과 정의",
       "    expect(solution(k, arr)).toEqual(result);",

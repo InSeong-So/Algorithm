@@ -21,15 +21,6 @@
 */
 
 function solution(N, K) {
-  let dy = Array.from({ length: K + 1 }, () => 0);
-
-  for (let i = 0; i < N.length; i++) {
-    let [weight, value] = N[i];
-    for (let j = K; j >= weight; j--) {
-      dy[j] = Math.max(dy[j], dy[j - weight] + value);
-    }
-  }
-
   return dy[K];
 }
 

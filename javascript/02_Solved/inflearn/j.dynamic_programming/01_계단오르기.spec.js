@@ -33,4 +33,24 @@ function solution(n) {
   return dy[n];
 }
 
-console.log(solution(7));
+/**
+ * ========================================================
+ * @Title       : 01_계단오르기
+ * @Path        : javascript\02_Solved\inflearn\j.dynamic_programming\01_계단오르기.spec.js
+ * @Description : 동적 계획법
+ * @Date        : 2021-07-06 16:15:29
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('01_계단오르기', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let k = 7;
+    const result = 21;
+
+    // 테스트 결과 정의
+    expect(solution(k)).toEqual(result);
+  });
+});

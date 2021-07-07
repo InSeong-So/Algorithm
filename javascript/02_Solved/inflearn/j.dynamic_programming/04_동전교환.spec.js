@@ -31,22 +31,38 @@ function solution(m, coin) {
 
   // 1부터 시작하므로 0번 인덱스는 초기화
   dy[0] = 0;
-  let cnt = 0;
   for (let i = 0; i < coin.length; i++) {
     // 코인의 금액을 증가시켜서 순회
     for (let j = coin[i]; j <= m; j++) {
       // 조건식을 꼭 생각해봐야 한다. 아래 부분이 핵심 로직이다.
       dy[j] = Math.min(dy[j], dy[j - coin[i]] + 1);
-      cnt++;
     }
-    console.log(cnt);
     // 확인
     // console.log(dy);
   }
 
-  console.log(cnt);
   return dy[m];
 }
 
-let arr = [1, 2, 5];
-console.log(solution(15, arr));
+/**
+ * ========================================================
+ * @Title       : 04_동전교환
+ * @Path        : javascript\02_Solved\inflearn\j.dynamic_programming\04_동전교환.spec.js
+ * @Description : 배낭 알고리즘
+ * @Date        : 2021-07-06 16:11:25
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('04_동전교환', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let k = 15;
+    let arr = [1, 2, 5];
+    const result = 3;
+
+    // 테스트 결과 정의
+    expect(solution(k, arr)).toEqual(result);
+  });
+});
