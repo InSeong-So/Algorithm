@@ -1,6 +1,6 @@
 const {
   repetitionPermutation,
-} = require('../../../01_Snippet/function/itertools');
+} = require('../../../01_Snippet/utils/itertools');
 
 const operators = repetitionPermutation(['*', '+', '-']);
 

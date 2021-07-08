@@ -1,4 +1,4 @@
-function isPrime(num) {
+export default function isPrime(num) {
   num = num || 0;
   if (num === 1 || num === 0) return false;
   // 루트 N까지 확인하기 : 약수의 중심을 구하는 방법
@@ -8,5 +8,3 @@ function isPrime(num) {
   }
   return true;
 }
-
-module.exports = isPrime;

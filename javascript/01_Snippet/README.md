@@ -1,10 +1,12 @@
 # JS Code Snippet
 ## Functions
+- isPrime
 
+- Comparator
+
+- itertools
 
 ## Structures
-- stack, queue
+- Stack, Queue, Priority Queue
 
-- heap
-
-- hash
+- Heap, MaxHeap, MinHeap

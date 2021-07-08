@@ -1,4 +1,4 @@
-import Queue from './queue';
+import Queue from '../Queue';
 
 describe('큐 구현 테스트', () => {
   const queue = new Queue();

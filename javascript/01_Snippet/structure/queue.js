@@ -1,4 +1,4 @@
-class Queue {
+export default class Queue {
   constructor() {
     this._arr = [];
   }
@@ -67,5 +67,3 @@ class Queue {
     return this._arr.length > 0 ? false : true;
   }
 }
-
-module.exports = Queue;

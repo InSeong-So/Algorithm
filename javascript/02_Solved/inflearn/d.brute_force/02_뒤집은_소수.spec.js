@@ -18,7 +18,7 @@ N개의 자연수가 입력되면 각 자연수를 뒤집은 후 그 뒤집은 �
 // 23 2 73 2 3
 
 // 소수 구하기 함수
-const isPrime = require('../../../01_Snippet/function/isPrime');
+const isPrime = require('../../../01_Snippet/utils/isPrime');
 
 function solution(arr) {
   let answer = [];
