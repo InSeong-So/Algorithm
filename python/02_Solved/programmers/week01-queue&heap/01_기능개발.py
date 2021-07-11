@@ -5,7 +5,7 @@ from collections import deque
 # pop(0)
 
 
-def solution(progresses, speeds):
+def solution1(progresses, speeds):
     answer = []
 
     while progresses:
@@ -24,7 +24,7 @@ def solution(progresses, speeds):
 
 
 # 위의 경우보다 조금 개선
-def solution(progresses, speeds):
+def solution2(progresses, speeds):
     answer = []
 
     progresses = deque(progresses)
@@ -46,7 +46,7 @@ def solution(progresses, speeds):
 
 
 # O(n)
-def solution(progresses, speeds):
+def solution3(progresses, speeds):
     answer = []
     # durations = []
     # for p, s in zip(progresses, speeds):
@@ -68,3 +68,11 @@ def solution(progresses, speeds):
         answer.append(count)
 
     return answer
+
+
+progresses = [93, 30, 55]
+speeds = [1, 30, 5]
+result = [2, 1]
+# [95, 90, 99, 99, 80, 99]	[1, 1, 1, 1, 1, 1]	[1, 3, 2]
+
+solution3(progresses, speeds)
