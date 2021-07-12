@@ -1,8 +1,65 @@
+/*=======================================================================================
+[학급 회장(해쉬)]
+학급 회장을 뽑는데 후보로 기호 A, B, C, D, E 후보가 등록을 했다.
+투표용지에는 반 학생들이 자기가 선택한 후보의 기호(알파벳)가 쓰여져 있으며 선생님은 그 기호를 발표하고 있다.
+선생님의 발표가 끝난 후 어떤 기호의 후보가 학급 회장이 되었는지 출력하는 프로그램을 작성하라.
+반드시 한 명의 학급회장이 선출되도록 투표결과가 나왔다고 가정한다.
+=======================================================================================*/
+
+// ▣ 입력설명
+// N개의 투표용지에 쓰여져 있던 각 후보의 기호가 선생님이 발표한 순서대로 문자열로 입력된다.
+
+// ▣ 출력설명
+// 학급 회장으로 선택된 기호를 출력한다.
+
+// ▣ 입력예제 1
+// 15
+// BACBACCACCBDEDE
+
+// ▣ 출력예제 1
+// C
+
 function solution(s) {
-  let answer;
+  let answer = 0;
+  let vote = new Map();
+
+  for (let p of s) {
+    if (vote.has(p)) {
+      vote.set(p, vote.get(p) + 1);
+    } else {
+      vote.set(p, 1);
+    }
+  }
+
+  let max = Number.MIN_SAFE_INTEGER;
+  for (let [k, v] of vote) {
+    if (v > max) {
+      max = v;
+      answer = k;
+    }
+  }
 
   return answer;
 }
 
-let str = 'BACBACCACCBDEDE';
-console.log(solution(str));
+/**
+ * ========================================================
+ * @Title       : 06_학급_회장(해쉬)
+ * @Path        : javascript\02_Solved\inflearn\e.efficiency\06_학급_회장(해쉬).spec.js
+ * @Description :
+ * @Date        : 2021-07-12 21:26:09
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('06_학급_회장(해쉬)', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let str = 'BACBACCACCBDEDE';
+    const result = 'C';
+
+    // 테스트 결과 정의
+    expect(solution(str)).toEqual(result);
+  });
+});

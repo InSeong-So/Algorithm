@@ -22,14 +22,43 @@
 // 56
 
 function solution(k, arr) {
+  // k가 3이라면
+  // 38+(20 - 12)
   let answer = 0;
+  let sum = 0;
+
+  // 초기값 선언
+  for (let i = 0; i < k; i++) sum += arr[i];
+
+  answer = sum;
+
+  for (let i = k; i < arr.length; i++) {
+    sum += arr[i] - arr[i - k];
+    answer = Math.max(answer, sum);
+  }
 
   return answer;
 }
 
-describe('연속 부분수열2', () => {
-  it('기본 테스트 케이스', () => {
-    let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
-    expect(solution(3, a)).toEqual(56);
+/**
+ * ========================================================
+ * @Title       : 05_최대_매출
+ * @Path        : javascript\02_Solved\inflearn\e.efficiency\05_최대_매출.spec.js
+ * @Description :
+ * @Date        : 2021-07-12 22:15:48
+ * --------------------------------------------------------
+ * @Author      : Inseong-so(https://github.com/inseong-so)
+ * ========================================================
+ */
+describe('05_최대_매출', () => {
+  // 테스트 케이스명
+  it('기본1', () => {
+    // 파라미터 정의
+    let k = 3;
+    let arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+    const result = 56;
+
+    // 테스트 결과 정의
+    expect(solution(k, arr)).toEqual(result);
   });
 });
