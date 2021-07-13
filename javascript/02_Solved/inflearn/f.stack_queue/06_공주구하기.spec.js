@@ -35,6 +35,16 @@ N과 K가 주어질 때 공주를 구하러 갈 왕자의 번호를 출력하는
 
 function solution(n, k) {
   let answer;
+  let queue = Array.from({ length: n }, (v, i) => i + 1);
+  while (queue.length) {
+    for (let i = 1; i < k; i++) {
+      queue.push(queue.shift());
+    }
+
+    queue.shift();
+
+    if (queue.length === 1) answer = queue.shift();
+  }
 
   return answer;
 }

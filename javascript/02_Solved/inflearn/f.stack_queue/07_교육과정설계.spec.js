@@ -27,6 +27,18 @@ C, G, E, A, D, B 순서로 짰다면 잘 못 설계된 수업계획이 된다.
 
 function solution(need, plan) {
   let answer = 'YES';
+  let queue = need.split('');
+  for (let e of plan) {
+    if (queue.indexOf(e) > -1) {
+      // 수업에 필요한 이수 과목을 수강하지 않았는지에 대한 조건문
+      if (e !== queue.shift()) return 'NO';
+    }
+  }
+
+  // 정상이라면 queue가 비었을 것
+  if (queue.length > 0) {
+    return 'NO';
+  }
 
   return answer;
 }

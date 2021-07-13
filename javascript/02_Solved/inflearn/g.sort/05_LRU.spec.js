@@ -40,13 +40,62 @@ N개의 작업을 처리한 후 캐시메모리의 상태를 가장 최근 사�
 // 5 3 2 6 1
 // 7 5 3 2 6
 
+// 삽입정렬 스타일
 function solution(size, arr) {
-  let answer = [];
+  let answer = Array.from({ length: size }, () => 0);
+
+  arr.forEach(e => {
+    let pos = -1;
+    for (let i = 0; i < size; i++) {
+      if (e === answer[i]) {
+        pos = i;
+      }
+    }
+    // miss
+    if (pos === -1) {
+      for (let i = size - 1; i >= 1; i--) {
+        // 앞을 뒤에 있는 것으로 땡긴다.
+        answer[i] = answer[i - 1];
+      }
+    } else {
+      // hit된 지점부터 돈다.
+      for (let i = pos; i >= 1; i--) {
+        // 앞을 뒤에 있는 것으로 땡긴다.
+        answer[i] = answer[i - 1];
+      }
+    }
+    // 앞에 삽입
+    answer[0] = e;
+  });
 
   return answer;
 }
 
-console.log(solution(5, arr));
+// 내장함수 사용
+function solution2(size, arr) {
+  let answer = [];
+
+  arr.forEach(e => {
+    let pos = -1;
+    for (let i = 0; i < size; i++) {
+      if (e === answer[i]) {
+        pos = i;
+      }
+    }
+    // miss
+    if (pos === -1) {
+      answer.unshift(e);
+      if (answer.length > size) {
+        answer.pop();
+      }
+    } else {
+      answer.splice(pos, 1);
+      answer.unshift(e);
+    }
+  });
+
+  return answer;
+}
 
 /**
  * ========================================================
@@ -60,7 +109,7 @@ console.log(solution(5, arr));
  */
 describe('05_LRU', () => {
   // 테스트 케이스명
-  it('기본1', () => {
+  it('기본1:for문으로 캐시를 순회하기', () => {
     // 파라미터 정의
     let k = 5;
     let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7];
@@ -68,5 +117,16 @@ describe('05_LRU', () => {
 
     // 테스트 결과 정의
     expect(solution(k, arr)).toEqual(result);
+  });
+
+  // 테스트 케이스명
+  it('기본1:unshift, pop을 사용하기', () => {
+    // 파라미터 정의
+    let k = 5;
+    let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+    const result = [7, 5, 3, 2, 6];
+
+    // 테스트 결과 정의
+    expect(solution2(k, arr)).toEqual(result);
   });
 });

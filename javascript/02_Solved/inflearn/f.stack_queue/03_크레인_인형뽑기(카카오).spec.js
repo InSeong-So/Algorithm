@@ -6,11 +6,29 @@ https://programmers.co.kr/learn/courses/30/lessons/64061
 
 function solution(board, moves) {
   let answer = 0;
-
+  let stack = [];
+  moves.forEach(pos => {
+    for (let i = 0; i < board.length; i++) {
+      // 인형을 만남
+      if (board[i][pos - 1] !== 0) {
+        // 인형 꺼내기
+        let temp = board[i][pos - 1];
+        // 인형을 꺼냈으니 해당 자리를 0으로 변경
+        board[i][pos - 1] = 0;
+        // 인형이 동일하다면 터트리고 answer 더하기
+        if (temp === stack[stack.length - 1]) {
+          stack.pop();
+          answer += 2;
+        } else {
+          stack.push(temp);
+        }
+        // 인형을 하나만 꺼내야하므로 break;
+        break;
+      }
+    }
+  });
   return answer;
 }
-
-console.log(solution(a, b));
 
 /**
  * ========================================================

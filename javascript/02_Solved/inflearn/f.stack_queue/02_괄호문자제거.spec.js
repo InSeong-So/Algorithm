@@ -16,9 +16,16 @@
 // EFLM
 
 function solution(s) {
-  let answer;
+  let stack = [];
+  for (let item of s) {
+    if (item === ')') {
+      while (stack.pop() !== '(');
+    } else {
+      stack.push(item);
+    }
+  }
 
-  return answer;
+  return stack.join('');
 }
 
 /**

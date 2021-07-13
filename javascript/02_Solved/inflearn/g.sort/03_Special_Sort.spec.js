@@ -21,6 +21,15 @@ N개의 정수가 입력되면 당신은 입력된 값을 정렬해야 한다.
 
 function solution(arr) {
   let answer = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > 0 && 0 < arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
   return answer;
 }
 

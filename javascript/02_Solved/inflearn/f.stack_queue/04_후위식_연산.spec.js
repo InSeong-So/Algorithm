@@ -4,6 +4,8 @@
 만약 3*(5+2)-9 을 후위연산식으로 표현하면 352+*9- 로 표현되며 그 결과는 12이다.
 =======================================================================================*/
 
+const { default: Stack } = require('@snippet/structure/Stack');
+
 // ▣ 입력설명
 // 첫 줄에 후위연산식이 주어진다. 연산식의 길이는 50을 넘지 않는다.
 // 식은 1~9의 숫자와 +, -, *, / 연산자로만 이루어진다.
@@ -18,9 +20,26 @@
 // 12
 
 function solution(s) {
-  let answer;
+  let stack = [];
+  for (let e of s) {
+    if (!isNaN(e)) {
+      stack.push(Number(e));
+    } else {
+      let right = stack.pop();
+      let left = stack.pop();
+      if (e === '+') {
+        stack.push(left + right);
+      } else if (e === '-') {
+        stack.push(left - right);
+      } else if (e === '*') {
+        stack.push(left * right);
+      } else if (e === '/') {
+        stack.push(left / right);
+      }
+    }
+  }
 
-  return answer;
+  return stack.pop();
 }
 
 /**

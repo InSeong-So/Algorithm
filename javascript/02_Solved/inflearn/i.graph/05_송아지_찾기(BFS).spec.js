@@ -26,7 +26,7 @@
 // ▣ 출력예제 2
 // 5
 
-function solution2(s, e) {
+function solution(s, e) {
   let answer = 0;
   let check = Array.from({ length: 10001 }, () => 0);
   let distance = Array.from({ length: 10001 }, () => 0);
@@ -34,14 +34,13 @@ function solution2(s, e) {
 
   check[s] = 1;
   queue.push(s);
-
   distance[s] = 0;
 
   while (queue.length) {
     let x = queue.shift();
     for (let nx of [x - 1, x + 1, x + 5]) {
       if (nx === e) {
-        return distance[x];
+        return distance[x] + 1;
       }
       if (nx > 0 && nx <= 10000 && check[nx] === 0) {
         check[nx] = 1;
@@ -56,7 +55,7 @@ function solution2(s, e) {
 }
 
 // 레벨로 계산하기
-function solution(s, e) {
+function solution2(s, e) {
   let answer = 0;
   let check = Array.from({ length: 10001 }, () => 0);
   let queue = [];
@@ -94,7 +93,7 @@ function solution(s, e) {
  */
 describe('05_송아지_찾기(BFS)', () => {
   // 테스트 케이스명
-  it('기본1', () => {
+  it('기본1:거리계산', () => {
     // 파라미터 정의
     let k = 8;
     let n = 3;
@@ -102,5 +101,15 @@ describe('05_송아지_찾기(BFS)', () => {
 
     // 테스트 결과 정의
     expect(solution(k, n)).toEqual(result);
+  });
+  // 테스트 케이스명
+  it('기본2:레벨계산', () => {
+    // 파라미터 정의
+    let k = 8;
+    let n = 3;
+    const result = 5;
+
+    // 테스트 결과 정의
+    expect(solution2(k, n)).toEqual(result);
   });
 });
