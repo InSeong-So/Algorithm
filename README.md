@@ -4,11 +4,11 @@
 <br>
 
 # 언어별 디렉토리
-## [java 바로가기](https://github.com/InSeong-So/Algorithm/tree/master/java)
+## [Java for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/java)
 
-## [javascript 바로가기](https://github.com/InSeong-So/Algorithm/tree/master/javascript)
+## [javascript for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/javascript)
 
-## [python 바로가기](https://github.com/InSeong-So/Algorithm/tree/master/python)
+## [python for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/python)
 
 <br>
 
