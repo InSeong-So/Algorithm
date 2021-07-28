@@ -21,44 +21,59 @@
 <br>
 
 # 노트
+- *브루트포스 알고리즘(Bruteforcing)
+- *그리디 알고리즘(Greedy)
+- *재귀(Recursion)
+- *그래프 탐색(Graph Traversal)
+- *깊이 우선 탐색(Depth-first Search)
+- *너비 우선 탐색(Breadth-first Search)
+- *다이나믹 프로그래밍(Dynamic Programming)
+- *자료 구조(Data Structures)
+- *정렬(Sorting)
+- *트리(Tree) : 자료구조
+- *이분 탐색(Binary Search)
+- *다익스트라(Dijkstra's)
+- ~비트마스킹(Bitmask)
+- *파싱(Parsing)
+- *트리를 사용한 집합과 맵(Set / Map By Trees) : 자료구조
+- *연결 리스트(Linked List) : 자료구조
+- *스택(Stack) : 자료구조
+- *큐(Queue) : 자료구조
+- *우선순위 큐(Priority Queue) : 자료구조
+- *덱(Deque) : 자료구조
+- *분할 정복(Divide And Conquer)
+- *에라토스테네스의 체(Sieve Of Eratosthenes)
+- *해싱(Hashing)
+- *위상 정렬(Topological Sorting)
+- *플로이드–와샬(Floyd–warshall)
+- *슬라이딩 윈도우(Sliding Window)
+- ~두 포인터(Two-pointer)
+- ~유클리드 호제법(Euclidean Algorithm)
+- *배낭 문제(Knapsack)
+- *벨만–포드(Bellman–ford)
+- *병렬 이분 탐색(Parallel Binary Search)
+- *머지 소트 트리(Merge Sort Tree)
+- *외판원 순회 문제(Travelling Salesman Problem)
 - 수학(Mathematics)
 - 구현(Implementation)
-- 다이나믹 프로그래밍(Dynamic Programming)
 - 그래프 이론(Graph Theory)
-- 자료 구조(Data Structures)
 - 문자열(String)
-- 그리디 알고리즘(Greedy)
-- 그래프 탐색(Graph Traversal)
-- 브루트포스 알고리즘(Bruteforcing)
-- 정렬(Sorting)
 - 세그먼트 트리(Segment Tree)
-- 트리(Tree)
 - 정수론(Number Theory)
 - 기하학(Geometry)
-- 이분 탐색(Binary Search)
-- 너비 우선 탐색(Breadth-first Search)
 - 사칙연산(Arithmetic)
-- 조합론(Combinatorics)
+- 조합론(Combinatorics) : 순열과 조합에 대해서는 알아야 함
 - 시뮬레이션(Simulation)
-- 깊이 우선 탐색(Depth-first Search)
 - 누적 합(Prefix Sum)
-- 다익스트라(Dijkstra's)
-- 비트마스킹(Bitmask)
 - 구성적(Constructive)
 - 애드 혹(Ad-hoc)
-- 분할 정복(Divide And Conquer)
 - 분리 집합(Disjoint Set)
 - 백트래킹(Backtracking)
-- 파싱(Parsing)
 - 많은 조건 분기(Case Work)
 - 스위핑(Sweeping)
-- 우선순위 큐(Priority Queue)
-- 트리를 사용한 집합과 맵(Set / Map By Trees)
+- 해시를 사용한 집합과 맵(Set / Map By Hashing) : 자료구조
 - 트리에서의 다이나믹 프로그래밍(Dynamic Programming On Trees)
-- 두 포인터(Two-pointer)
-- 스택(Stack)
 - 최대 유량(Maximum Flow)
-- 해시를 사용한 집합과 맵(Set / Map By Hashing)
 - 느리게 갱신되는 세그먼트 트리(Segment Tree With Lazy Propagation)
 - 소수 판정(Primality Test)
 - 비트필드를 이용한 다이나믹 프로그래밍(Dynamic Programming Using Bitfield)
@@ -66,15 +81,10 @@
 - 분할 정복을 이용한 거듭제곱(Exponentiation By Squaring)
 - 오프라인 쿼리(Offline Queries)
 - 임의 정밀도 / 큰 수 연산(Arbitrary Precision / Big Integers)
-- 재귀(Recursion)
 - 최소 스패닝 트리(Minimum Spanning Tree)
 - 이분 매칭(Bipartite Matching)
-- 에라토스테네스의 체(Sieve Of Eratosthenes)
 - 최소 공통 조상(Lowest Common Ancestor)
-- 해싱(Hashing)
 - 강한 연결 요소(Strongly Connected Component)
-- 위상 정렬(Topological Sorting)
-- 플로이드–와샬(Floyd–warshall)
 - 선형대수학(Linear Algebra)
 - 볼록 껍질(Convex Hull)
 - 확률론(Probability Theory)
@@ -83,18 +93,14 @@
 - 값 / 좌표 압축(Value / Coordinate Compression)
 - 런타임 전의 전처리(Precomputation)
 - 트라이(Trie)
-- 유클리드 호제법(Euclidean Algorithm)
-- 배낭 문제(Knapsack)
-- 희소 배열(Sparse Table)
+- 희소 배열(Sparse Table) : 선형대수
 - 볼록 껍질을 이용한 최적화(Convex Hull Trick)
 - 작은 집합에서 큰 집합으로 합치는 테크닉(Smaller To Larger Technique)
 - kmp(Knuth–morris–pratt)
 - 최소 비용 최대 유량(Minimum Cost Maximum Flow)
 - 접미사 배열과 lcp 배열(Suffix Array And Lcp Array)
 - 제곱근 분할법(Square Root Decomposition)
-- 덱(Deque)
 - 매개 변수 탐색(Parametric Search)
-- 슬라이딩 윈도우(Sliding Window)
 - 스프라그–그런디 정리(Sprague–grundy Theorem)
 - 중간에서 만나기(Meet In The Middle)
 - heavy-light 분할(Heavy-light Decomposition)
@@ -114,7 +120,6 @@
 - 오일러 경로(Eulerian Path / Circuit)
 - 휴리스틱(Heuristics)
 - 최대 유량 최소 컷 정리(Max-flow Min-cut Theorem)
-- 큐(Queue)
 - 선인장(Cactus)
 - 물리학(Physics)
 - mo's(Mo's)
@@ -123,17 +128,13 @@
 - 평면 그래프(Planar Graph)
 - 오일러 지표 (χ=v-e+f)(Euler Characteristic (χ=v-e+f))
 - 순열 사이클 분할(Permutation Cycle Decomposition)
-- 벨만–포드(Bellman–ford)
-- 병렬 이분 탐색(Parallel Binary Search)
 - 벌래캠프–매시(Berlekamp–massey)
 - 스플레이 트리(Splay Tree)
 - 아호-코라식(Aho-corasick)
 - 이중 연결 요소(Biconnected Component)
-- 머지 소트 트리(Merge Sort Tree)
 - 다차원 세그먼트 트리(Multidimensional Segment Tree)
 - 페르마의 소정리(Fermat's Little Theorem)
 - 회전하는 캘리퍼스(Rotating Calipers)
-- 연결 리스트(Linked List)
 - 0-1 너비 우선 탐색(0-1 Bfs)
 - 확장 유클리드 호제법(Extended Euclidean Algorithm)
 - 라빈–카프(Rabin–karp)
@@ -149,7 +150,6 @@
 - 모듈로 곱셈 역원(Modular Multiplicative Inverse)
 - 폴라드 로(Pollard Rho)
 - 수치해석(Numerical Analysis)
-- 외판원 순회 문제(Travelling Salesman Problem)
 - 인터프리터(Interpreter)
 - 다각형의 넓이(Area Of A Polygon)
 - aliens 트릭(Aliens Trick)
@@ -195,3 +195,24 @@
 - 베이즈 정리(Bayes Theorem)
 - 이산 k제곱근(Discrete K-th Root)
 - a*(A*)
+
+//
+
+- 동적 계획법 1
+- 그리디 알고리즘
+- 분할 정복
+- 이분 탐색
+- 우선순위 큐
+- 동적 계획법 2
+- DFS와 BFS
+- 최단 경로
+- 문자열 알고리즘 1
+
+//
+
+1. 펼쳐놓은 것을 줄여라
+2. 문제를 풀고 개념 잡기
+3. 개념 이해하고 있는지 확인하기
+4. Python으로 풀고 Javascript로 풀기
+5. 단원별로 최소 3문제 풀어보고 부족한게 뭔지, 이해할 수 없는게 뭔지 체크해두기
+6. 50점 목표로, 차후에 100점까지 간다.
