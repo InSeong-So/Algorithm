@@ -1,6 +1,6 @@
 - 문자열 [Link](https://www.acmicpc.net/step/7)
 - 동적 계획법 1 [Link](https://www.acmicpc.net/step/16)
-- 그리디 알고리즘 [Link]
+- 그리디 알고리즘 [Link](https://www.acmicpc.net/step/33)
 - 분할 정복 [Link]
 - 이분 탐색 [Link]
 - 우선순위 큐 [Link]
