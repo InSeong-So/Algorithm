@@ -14,4 +14,4 @@ for _ in range(N):
     result.append(f'{dp[T][0]} {dp[T][1]}')
 
 for i in result:
-  print(i)
+    print(i)
