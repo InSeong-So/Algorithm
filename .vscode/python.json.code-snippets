@@ -1,0 +1,30 @@
+{
+  "Python TestCase Snippets": {
+    "scope": "python",
+    "prefix": "pyt",
+    "body": [
+      "'''",
+      " * ========================================================",
+      " * @Title       : ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
+      " * @Path        : ${RELATIVE_FILEPATH}",
+      " * @Description : ",
+      " * @Date        : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " * --------------------------------------------------------",
+      " * @Author      : Inseong-so(https://github.com/inseong-so)",
+      " * ========================================================",
+      "'''",
+      "def test_01():",
+      "  assert 1 == 1",
+			"",
+      "def test_02():",
+      "  assert 1 == 1",
+			"",
+      "def test_03():",
+      "  assert 1 == 1",
+			"",
+      "def test_04():",
+      "  assert 1 == 1",
+    ],
+    "description": "Python TestCase Snippets"
+  }
+}

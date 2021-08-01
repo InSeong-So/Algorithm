@@ -1,5 +1,4 @@
 # 메모이제이션
-
 N = int(input())
 
 result = []

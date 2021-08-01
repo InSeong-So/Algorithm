@@ -1,10 +1,12 @@
-- 문자열 [Link](https://www.acmicpc.net/step/7)
-- 동적 계획법 1 [Link](https://www.acmicpc.net/step/16)
-- 그리디 알고리즘 [Link](https://www.acmicpc.net/step/33)
-- 분할 정복 [Link]
-- 이분 탐색 [Link]
-- 우선순위 큐 [Link]
-- 동적 계획법 2 [Link]
-- DFS와 BFS [Link]
-- 최단 경로 [Link]
-- 문자열 알고리즘 1 [Link]
+- [ ] 문자열 [Link](https://www.acmicpc.net/step/7)
+- [ ] 동적 계획법 1 [Link](https://www.acmicpc.net/step/16)
+- [ ] 그리디 알고리즘 [Link](https://www.acmicpc.net/step/33)
+- [ ] 분할 정복 [Link](https://www.acmicpc.net/step/20)
+- [ ] DFS와 BFS [Link](https://www.acmicpc.net/step/24)
+- [ ] 최단 경로 [Link](https://www.acmicpc.net/step/26)
+- [ ] 이분 탐색 [Link](https://www.acmicpc.net/step/29)
+- [ ] 우선순위 큐 [Link](https://www.acmicpc.net/step/13)
+- [ ] 동적 계획법 2 [Link](https://www.acmicpc.net/step/17)
+- [ ] 동적 계획법 3 [Link](https://www.acmicpc.net/step/31)
+- [ ] 문자열 알고리즘 1 [Link](https://www.acmicpc.net/step/27)
+- [ ] 문자열 알고리즘 2 [Link](https://www.acmicpc.net/step/28)
