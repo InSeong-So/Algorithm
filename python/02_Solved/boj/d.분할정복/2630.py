@@ -1,3 +1,30 @@
+import sys
+
+matrix = []
+for _ in range(int(input())):
+    matrix.append(list(map(int, sys.stdin.readline().split())))
+
+
+def recursion(x, y, N):
+    div = N // 2
+    target = matrix[x][y]
+    for i in range(x, x+N):
+        for j in range(y, y+N):
+            if target != matrix[i][j]:
+                recursion(x, y, div)
+                recursion(x, y+div, div)
+                recursion(x+div, y, div)
+                recursion(x+div, y+div, div)
+                return
+    result[target] += 1
+
+
+result = [0, 0]
+recursion(0, 0, len(matrix))
+
+print(result[0])
+print(result[1])
+
 # * ========================================================
 # * @Title       : 2630
 # * @Path        : python\02_Solved\boj\d.분할정복\2630.py
@@ -8,6 +35,8 @@
 # * ========================================================
 
 # 복습용, 함수화할 부분
+
+
 def solution(matrix):
     result = [0, 0]
 

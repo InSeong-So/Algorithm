@@ -12,7 +12,7 @@
 
 <br>
 
-### 1629번 [곱셈	디버그](https://www.acmicpc.net/problem/1629)
+### 1629번 [곱셈](https://www.acmicpc.net/problem/1629)
 
 <br>
 
