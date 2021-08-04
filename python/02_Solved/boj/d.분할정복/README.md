@@ -17,6 +17,9 @@
 <br>
 
 ### 11401번 [이항 계수 3](https://www.acmicpc.net/problem/11401)
+페르마의 소정리
+역원 구하기
+[참고](https://www.acmicpc.net/board/view/15795)
 
 <br>
 
@@ -29,6 +32,7 @@
 <br>
 
 ### 11444번 [피보나치 수 6](https://www.acmicpc.net/problem/11444)
+[피보나치 수를 구하는 여러가지 방법](https://www.acmicpc.net/blog/view/28)
 
 <br>
 
