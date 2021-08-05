@@ -1,46 +1,23 @@
-# import sys
-# input()
-# A = list(map(int, sys.stdin.readline().split()))
-# input()
-# B = list(map(int, sys.stdin.readline().split()))
+import sys
+input()
+A = list(map(int, sys.stdin.readline().split()))
+input()
+B = list(map(int, sys.stdin.readline().split()))
 
-# A.sort()
+cards = dict()
+for i in A:
+    if i not in cards:
+        cards[i] = 1
+    else:
+        cards[i] += 1
 
+result = []
 
-# def binary_search(left, right, target):
-#     while left <= right:
-#         mid = (left + right) // 2
-#         if target == A[mid]:
-#             count = 1
-#             start, end = mid, mid
-#             # for i in range(left, mid):
-#             #     if A[i] == target:
-#             #         start = i
-#             #         break
-#             # for j in range(right, mid, -1):
-#             #     if A[j] == target:
-#             #         end = j
-#             #         break
-#             for i in range(mid-1, left-1, -1):
-#                 if A[i] != target:
-#                     start = i
-#                     break
-#             for j in range(mid + 1, right+1):
-#                 if A[j] != target:
-#                     end = j
-#                     break
-#             return count + end - start
-#         elif target > A[mid]:
-#             left = mid + 1
-#         else:
-#             right = mid - 1
-#     return 0
-
-
-# for target in B:
-#     left = 0
-#     right = len(A) - 1
-#     print(binary_search(left, right, target), end=" ")
+for target in B:
+    if target in cards:
+        print(cards[target])
+    else:
+        print(0)
 
 # * ========================================================
 # * @Title       : 10816
@@ -55,34 +32,22 @@
 
 
 def solution(A, B):
-
     A.sort()
+
+    cards = dict()
+    for i in A:
+        if i not in cards:
+            cards[i] = 1
+        else:
+            cards[i] += 1
 
     result = []
 
-    def binary_search(left, right, target):
-        while left <= right:
-            mid = (left + right) // 2
-            if target == A[mid]:
-                count = 1
-                start, end = 0, len(A) - 1
-                for i in range(mid - 1, left, -1):
-                    if A[i] != target:
-                        start = i
-                        break
-                for j in range(mid + 1, right):
-                    if A[j] != target:
-                        end = j
-                        break
-                return count + end - start
-            elif target > A[mid]:
-                left = mid + 1
-            else:
-                right = mid - 1
-        return 0
-
     for target in B:
-        result.append(binary_search(0, len(A) - 1, target))
+        if target in cards:
+            result.append(cards[target])
+        else:
+            result.append(0)
 
     return result
 
