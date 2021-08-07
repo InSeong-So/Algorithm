@@ -19,47 +19,45 @@ for _ in range(M):
 
 def solution(N, M, box):
     from collections import deque
-
+    # 0 - 익지 않은 토마토, 1 - 익은 토마토, -1 - 벽의 개수
+    tomatoes = [0, 0, 0]
     visited = [[False for _ in range(N)] for _ in range(M)]
-    tomatoes = deque()
-    grow = [0]
+    growed = deque()
 
     dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
 
-    def BFS(day, tomatoes):
-        childs = deque()
-        while tomatoes:
-            lx, ly = tomatoes.popleft()
+    for i in range(M):
+        for j in range(N):
+            tomatoes[box[i][j]] += 1
+            if box[i][j] == 1:
+                growed.append([i, j])
+
+    if tomatoes[1] == 0:
+        print(-1)
+    elif tomatoes[0] == 0 and tomatoes[1] != 0:
+        print(0)
+    else:
+        day = 0
+        target = deque()
+        while growed:
+            lx, ly = growed.popleft()
             for i in range(4):
                 nx, ny = lx + dx[i], ly + dy[i]
                 if nx >= 0 and nx < M and ny >= 0 and ny < N and not visited[nx][ny] and box[nx][ny] == 0:
-                    visited[nx][ny] = True
+                    visited[nx][ny] == True
                     box[nx][ny] = box[lx][ly] + 1
-                    childs.append([nx, ny])
-                    grow[0] -= 1
-        if len(childs) != 0:
-            return BFS(day + 1, childs)
-        else:
-            return day
-
-    for i in range(M):
-        for j in range(N):
-            if box[i][j] == 1:
-                tomatoes.append([i, j])
-            elif box[i][j] == 0:
-                grow[0] += 1
-
-    if len(tomatoes) != 0:
-        cnt = BFS(0, tomatoes)
-        if grow[0] != 0:
+                    target.append([nx, ny])
+                    tomatoes[0] -= 1
+                    tomatoes[1] += 1
+            if len(growed) == 0:
+                growed = target
+                target = deque()
+                day += 1
+        if tomatoes[0] != 0:
             print(-1)
         else:
-            print(cnt)
-    elif len(tomatoes) == grow[0]:
-        print(0)
-    else:
-        print(-1)
+            print(day - 1)
 
 
 solution(N, M, box)
