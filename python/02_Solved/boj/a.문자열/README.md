@@ -19,6 +19,18 @@ ord() 함수를 사용하면 해당 문자의 아스키코드를 가져올 수 �
 
 전체 알파벳을 loop 돌면서 계산한다. string 라이브러리와 find() 함수를 이용하여 해결한다.
 
+```py
+import string
+# 소문자 abcdefghijklmnopqrstuvwxyz
+string.ascii_lowercase
+# 대문자 ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+string.ascii_uppercase
+# 대소문자 모두 abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+string.ascii_letters
+# 숫자 0123456789
+string.digits
+```
+
 <br>
 
 ### 2675번 문제 [문자열 반복](https://www.acmicpc.net/problem/2675)

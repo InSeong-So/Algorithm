@@ -43,6 +43,8 @@
 ### 2206번 [벽 부수고 이동하기](https://www.acmicpc.net/problem/2206)
 > "현재 상태"를 정점으로 표현하여 그래프를 만들고 최단거리를 구하는 문제
 
+[참고](https://www.acmicpc.net/board/view/27386)
+
 <br>
 
 ### 7562번 [나이트의 이동](https://www.acmicpc.net/problem/7562)
