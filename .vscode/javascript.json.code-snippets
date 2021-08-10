@@ -3,9 +3,31 @@
     "scope": "javascript,typescript",
     "prefix": "jsc",
     "body": [
-      "// https://www.acmicpc.net/problem/ 문제의 입력을 수정한 내용입니다.",
+      "/** ",
+      " * ========================================================",
+      " * @Title       : ${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
+      " * @Path        : ${RELATIVE_FILEPATH}",
+      " * @Link        : https://www.acmicpc.net/problem/${TM_FILENAME_BASE/(.*)\\..+$/$1/}",
+      " * @Description : ",
+      " * @Note        : ",
+      " * @Date        : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " * --------------------------------------------------------",
+      " * @Author      : Inseong-so(https://github.com/inseong-so)",
+      " * ========================================================",
+      " */",
+      "describe('${TM_FILENAME_BASE/(.*)\\..+$/$1/}', () => {",
+      "  // 테스트 케이스명",
+      "  it('기본1', () => {",
+      "    const consoleResult = jest.spyOn(console, 'log')",
+      "    console.log(solution())",
+      "    const result = ''",
+      "",
+      "    // 테스트 결과 정의",
+      "    expect(consoleResult).toHaveBeenCalledWith(result);",
+      "  });",
+      "});",
     ],
-    "description": "Javascript CodingTest Comment"
+    "description": "Javascript TestCase Snippets 1"
   },
   "Javascript TestCase Snippets": {
     "scope": "javascript,typescript",
@@ -34,6 +56,6 @@
       "  });",
       "});",
     ],
-    "description": "Javascript TestCase Snippets"
+    "description": "Javascript TestCase Snippets 2"
   }
 }

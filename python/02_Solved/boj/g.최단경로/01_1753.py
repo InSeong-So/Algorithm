@@ -13,51 +13,47 @@ import sys
 
 
 # Solve 함수
-def solution(vertex, edge, start, pairs):
-    from collections import deque
-    graph = [[] for _ in range(vertex + 1)]
-    for u, v, w in pairs:
-        graph[u].append((v, w))
-
-    # 출발점으로부터의 최단거리를 저장할 배열 d[v]를 만든다.
-    visited = [False for _ in range(vertex + 1)]
-    distance = [float('INF') for _ in range(vertex + 1)]
-    # 출발 노드에는 0을, 출발점을 제외한 다른 노드들에는 매우 큰 값 INF를 채워 넣는다.
+def solution(vertex, edge, start, graph):
+    # 다익스트라는 최소 힙을 이용해야 한다. 가중치가 적은 인접 노드를 선택해야 하므로
+    from heapq import heappop, heappush
+    INF = sys.maxsize
+    distance = [INF for _ in range(vertex + 1)]
+    # 시작 노드는 가중치가 없으므로 0으로 초기화
     distance[start] = 0
 
-    queue = deque()
+    def dijkstra(start, graph):
+        heap = []
+        heappush(heap, (0, start))
+        while heap:
+            lw, lv = heappop(heap)
 
-    # 현재 노드를 나타내는 변수 A에 출발 노드의 번호를 저장한다.
-    queue.append(start)
-    while queue:
-        v = queue.popleft()
-        for i in range(len(graph[v])):
-            # A로부터 갈 수 있는 임의의 노드 B에 대해, d[A] + P[A][B][7]와 d[B][8]의 값을 비교한다.
-            # INF와 비교할 경우 무조건 전자가 작다.
+            # 저장된 노드의 가중치가 현재 가중치보다 작다면 패스
+            if distance[lv] < lw:
+                continue
 
-            # 만약 d[A] + P[A][B]의 값이 더 작다면, 즉 더 짧은 경로라면, d[B]의 값을 이 값으로 갱신시킨다.
-            distance[graph[v][i][0]] = \
-                min(distance[v] + graph[v][i][1], distance[graph[v][i][0]])
-            # A의 모든 이웃 노드 B에 대해 이 작업을 수행한다.
+            # 인접 노드
+            for nv, w in graph[lv]:
+                # 인접 노드의 가중치
+                nw = lw + w
+                if nw < distance[nv]:
+                    distance[nv] = nw
+                    heappush(heap, (nw, nv))
 
-            # "미방문" 상태인 모든 노드들 중, 출발점으로부터의 거리가 제일 짧은 노드 하나를 골라서 그 노드를 A에 저장한다.
-            if not visited[graph[v][i][0]]:
-                queue.append(graph[v][i][0])
-        # A의 상태를 "방문 완료"로 바꾼다. 그러면 이제 더 이상 A는 사용하지 않는다.
-        visited[v] = True
+    dijkstra(start, graph)
 
     for i in range(1, len(distance)):
-        print(str(distance[i]).upper())
+        print("INF" if distance[i] == INF else distance[i])
 
 
 # 입력
 vertex, edge = list(map(int, sys.stdin.readline().split()))
 start = int(input())
-pairs = []
+graph = [[] for _ in range(vertex + 1)]
 for _ in range(edge):
-    pairs.append(list(map(int, sys.stdin.readline().split())))
+    u, v, w = list(map(int, sys.stdin.readline().split()))
+    graph[u].append((v, w))
 
-solution(vertex, edge, start, pairs)
+solution(vertex, edge, start, graph)
 
 
 def test_01(capfd):
@@ -72,7 +68,10 @@ def test_01(capfd):
         [2, 4, 5],
         [3, 4, 6],
     ]
-    solution(vertex, edge, start, pairs)
+    graph = [[] for _ in range(vertex + 1)]
+    for u, v, w in pairs:
+        graph[u].append((v, w))
+    solution(vertex, edge, start, graph)
     out, err = capfd.readouterr()
     result = '0\n2\n3\n7\nINF\n'
     assert out == result
@@ -90,7 +89,10 @@ def test_02(capfd):
         [2, 4, 5],
         [3, 4, 6],
     ]
-    solution(vertex, edge, start, pairs)
+    graph = [[] for _ in range(vertex + 1)]
+    for u, v, w in pairs:
+        graph[u].append((v, w))
+    solution(vertex, edge, start, graph)
     out, err = capfd.readouterr()
     result = 'INF\n0\n4\n5\nINF\n'
     assert out == result
@@ -106,7 +108,10 @@ def test_03(capfd):
         [2, 3, 3],
         [3, 4, 7],
     ]
-    solution(vertex, edge, start, pairs)
+    graph = [[] for _ in range(vertex + 1)]
+    for u, v, w in pairs:
+        graph[u].append((v, w))
+    solution(vertex, edge, start, graph)
     out, err = capfd.readouterr()
     result = '0\n7\n10\n5\n'
     assert out == result

@@ -17,14 +17,13 @@ N! = n*(n-1)*(n-2)*.....*2*1 이다.
 // ▣ 출력예제 1
 // 120
 
-function solution(n) {
-  function DFS(v) {
-    if (v === 1) return v;
-
-    return v * DFS(v - 1);
+const arr = [7, 3, 4, 4, 8, 2, 5, 1];
+const dp2 = [1, 1, 1, 1, 1, 1, 1, 1];
+for (let i = arr.length - 2; i >= 0; i--) {
+  if (arr[i] <= arr[i + 1]) {
+    dp2[i] = dp2[i + 1] + 1;
+    console.log(dp2);
   }
-
-  return DFS(n);
 }
 
 /**
@@ -37,14 +36,14 @@ function solution(n) {
  * @Author      : Inseong-so(https://github.com/inseong-so)
  * ========================================================
  */
-describe('11_팩토리얼', () => {
-  // 테스트 케이스명
-  it('기본1', () => {
-    // 파라미터 정의
-    let k = 5;
-    const result = 120;
+// describe('11_팩토리얼', () => {
+//   // 테스트 케이스명
+//   it('기본1', () => {
+//     // 파라미터 정의
+//     let k = 5;
+//     const result = 120;
 
-    // 테스트 결과 정의
-    expect(solution(k)).toEqual(result);
-  });
-});
+//     // 테스트 결과 정의
+//     expect(solution(k)).toEqual(result);
+//   });
+// });
