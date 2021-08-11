@@ -2,11 +2,11 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@snippet/*":["01_Snippet/*"]
+      "@snippet/*":["lib/*"]
     }
   },
   "exclude": [
     "node_modules",
-    "00_Theory"
+    "문제이론"
   ]
 }

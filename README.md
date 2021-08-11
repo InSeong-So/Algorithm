@@ -3,18 +3,52 @@
 
 <br>
 
-# 언어별 디렉토리
-## [Java for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/java)
-
-## [javascript for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/javascript)
-
-## [python for Alogrithms](https://github.com/InSeong-So/Algorithm/tree/master/python)
+여기 내용은 수시로 바뀝니다. 구조 등도 기록을 통해 변경하므로 일관성을 유지하지 않습니다.
 
 <br>
 
-# 나만의 모의고사를 만들기 위한 디렉토리
-## [workbook 바로가기](https://github.com/InSeong-So/Algorithm/tree/master/workbook)
+# 개요
+## 구성
+1. 언어별 snippet을 만든다.
+2. 언어별 테스트를 위한 라이브러리를 적용한다.
+    - 현재 이 저장소는 Visual Studio Code를 중점적으로 사용하고 있습니다.
+3. 자주 사용하는 함수, 짤막한 코드, I/O 기능은 별개의 디렉토리로 분류한다.
+    - 언어별 디렉토리의 **lib 폴더**로 정한다.
+4. 언어별 디렉토리를 구성하는 하위 디렉토리 설명
+    - 문제이론 : 알고리즘, 자료구조에 대한 이론, 문제 접근방법 등을 적어놓기
+    - 문제풀이 : 알고리즘에 대한 풀이를 적는 곳. 테스트 케이스를 많이 만들어서 반복 숙달한다.
+    - lib : 자주 사용하는 기능들을 모아놓은 폴더.
+    - 그 외 : 언어를 지원하는 각종 라이브러리 등
+5. 단계별로 알고리즘에 대한 기초 이론을 습득했다면, 언어별 반복 풀이를 통해 이를 숙달한다.
+    - 완료 된 문제에 대해 Blog, Notion 등에 기록한다.
 
+## 언어별 디렉토리
+> Java는 저장소 주인이 잠깐 손을 놨습니다.
+- ~~[코딩테스트를 위한 자바](https://github.com/InSeong-So/Algorithm/tree/master/java)~~
+
+- [코딩 테스트를 위한 자바스크립트](https://github.com/InSeong-So/Algorithm/tree/master/javascript)
+
+- [코딩 테스트를 위한 파이썬](https://github.com/InSeong-So/Algorithm/tree/master/python)
+
+<br>
+
+## .vscode 디렉토리
+> 언어의 snippet을 설정하기 위함입니다. Visual Studio Code가 기준입니다.
+
+구성은 아래와 같습니다.
+- javascript : **jst** 후 tab이나 자동완성을 누르면 테스트케이스와 기본 주석을 작성합니다.
+- python : **pyt** 후 tab이나 자동완성을 누르면 테스트케이스와 기본 주석을 작성합니다.
+    - tasks : 현재 활성화 된 파이썬 파일을 실행하는 단축키를 구성하는 파일입니다. Ctrl + Shift + B를 누르면 해당 파일을 실행합니다.
+- markdown : 마크다운 정리를 위한 snippet 입니다.
+
+<br>
+
+## 나만의 모의고사를 만들기 위한 디렉토리
+- [workbook](https://github.com/InSeong-So/Algorithm/tree/master/workbook)
+
+<br>
+
+# 그 외
 ## 명심하기!
 - 종이인지, 모니터인지 확인해서 나한테 맞는 방법을 찾아야 하며, 어떤 방법으로든 **글을 써야** 성장한다.
 - 100점이 목표가 아니라 100점을 맞을 수 있는 공부 방법을 찾는 것이다.

@@ -17,30 +17,34 @@ INF = sys.maxsize
 def solution(vertex, edge, graph):
     def floyd_warshall():
         # 중앙정점, 거쳐가는 정점
-        for transfer in range(1, vertex + 1):
-            graph[transfer][transfer] = 0
+        for center in range(1, vertex + 1):
             # 시작하는 정점
             for start in range(1, vertex + 1):
                 # 종료하는 정점
                 for end in range(1, vertex + 1):
-                    if graph[start][end] > graph[start][transfer] + graph[transfer][end]:
-                        graph[start][end] = graph[start][transfer] + \
-                            graph[transfer][end]
+                    if graph[start][end] > graph[start][center] + graph[center][end]:
+                        graph[start][end] = graph[start][center] + \
+                            graph[center][end]
         return graph
 
-    # 인접행렬로 구성하면 100000 * 100000인데..
     result = floyd_warshall()
+
     for i in range(1, vertex + 1):
-        print(' '.join(list(map(str, result[i]))))
+        for j in range(1, vertex + 1):
+            print(0 if result[i][j] == INF else result[i][j], end=" ")
+        print()
 
-    return 1
 
-
-# # 입력
-# input()
-# int(input())
-# list(map(int, sys.stdin.readline().split()))
-# solution()
+# 입력
+vertex = int(input())
+edge = int(input())
+graph = [[INF for _ in range(vertex + 1)] for _ in range(vertex + 1)]
+for _ in range(edge):
+    u, v, w = list(map(int, sys.stdin.readline().split()))
+    graph[u][u] = 0
+    if graph[u][v] > w:
+        graph[u][v] = w
+solution(vertex, edge, graph)
 
 
 def test_01(capfd):
@@ -64,19 +68,13 @@ def test_01(capfd):
     ]
     graph = [[INF for _ in range(vertex + 1)] for _ in range(vertex + 1)]
     for u, v, w in pairs:
-        graph[u][v] = w
-    '''
-    0 2 3 1 4
-    12 0 15 2 5
-    8 5 0 1 1
-    10 7 13 0 3
-    7 4 10 6 0
-    '''
-    # solution(vertex, edge, graph)
-    # out, err = capfd.readouterr()
-    # result = '\n'
-    # assert out == result
-    assert solution(vertex, edge, graph) == 0
+        graph[u][u] = 0
+        if graph[u][v] > w:
+            graph[u][v] = w
+    solution(vertex, edge, graph)
+    out, err = capfd.readouterr()
+    result = '0 2 3 1 4 \n12 0 15 2 5 \n8 5 0 1 1 \n10 7 13 0 3 \n7 4 10 6 0 \n'
+    assert out == result
 
 
 # def test_02(capfd):
