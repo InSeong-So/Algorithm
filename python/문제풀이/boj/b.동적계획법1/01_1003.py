@@ -9,7 +9,7 @@ for _ in range(N):
     for i in range(4, T+1):
         dp[i][0] = dp[i - 1][1]
         dp[i][1] = sum(dp[i - 1])
-    
+
     result.append(f'{dp[T][0]} {dp[T][1]}')
 
 for i in result:
