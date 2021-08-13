@@ -1,22 +1,16 @@
-# N = int(input())
+def solution(str):
+    result = 0
+    answer = 1
+    for i in range(1, len(str)):
+        if str[i - 1] == str[i]:
+            answer += 1
+            if i == len(str) - 1:
+                result = max(result, answer)
+        else:
+            result = max(result, answer)
+            answer = 1
+    print(result)
 
 
-def solution(N):
-    matrix = [[' ' for _ in range(N)] for _ in range(N)]
-
-    def stars(x, y, sz):
-        if sz == 1:
-            matrix[x][y] = '*'
-            return
-        for i in range(3):
-            for j in range(3):
-                if i != 1 or j != 1:
-                    stars(x + sz // 3 * i, y + sz // 3 * j, sz // 3)
-    stars(0, 0, N)
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            print(matrix[i][j], end="")
-        print()
-
-
-solution(27)
+for _ in range(3):
+    solution(input())
