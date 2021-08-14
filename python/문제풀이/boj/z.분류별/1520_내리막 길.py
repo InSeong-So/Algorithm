@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10000)
 
 # * ========================================================
 # * @Title       : 1520
@@ -14,34 +15,43 @@ import sys
 
 # Solve 함수
 def solution(n, m, matrix):
-    from collections import deque
     dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
 
-    visited = [[False for _ in range(m + 1)] for _ in range(n + 1)]
-    cnt = 0
+    dp = [[-1 for _ in range(501)] for _ in range(501)]
 
     def DFS(x, y):
+        if x == n and y == m:
+            return 1
+
+        if dp[x][y] != -1:
+            return dp[x][y]
+
+        dp[x][y] = 0
+
         for i in range(4):
-            nx, ny = dx[i] + x, dy[i] + y
-            if nx + 1 == n and ny + 1 == m:
-                print("진입")
-            if nx >= 0 and nx < n and ny >= 0 and ny < m and not visited[nx][ny] and matrix[nx][ny] < matrix[x][y]:
-                visited[nx][ny] = True
-                DFS(nx, ny)
-                visited[nx][ny] = False
+            nx, ny = x + dx[i], y + dy[i]
+            if nx > 0 and nx <= n and ny > 0 and ny <= m and matrix[nx-1][ny-1] < matrix[x-1][y-1]:
+                dp[x][y] += DFS(nx, ny)
 
-    visited[0][0] = True
-    DFS(0, 0)
+        return dp[x][y]
 
-    return 1
+    DFS(1, 1)
+
+    # for i in range(1, n + 1):
+    #     for j in range(1, m + 1):
+    #         print('-' if dp[i][j] == -1 else dp[i][j], end=" ")
+    #     print()
+
+    print(dp[1][1])
 
 
-# # 입력
-# input()
-# int(input())
-# list(map(int, sys.stdin.readline().split()))
-# solution()
+# 입력
+n, m = list(map(int, sys.stdin.readline().split()))
+matrix = [[] for _ in range(n)]
+for i in range(n):
+    matrix[i] = list(map(int, sys.stdin.readline().split()))
+solution(n, m, matrix)
 
 
 def test_01(capfd):
@@ -54,28 +64,49 @@ def test_01(capfd):
         [27, 24, 22, 15, 10],
     ]
     solution(n, m, matrix)
-    # out, err = capfd.readouterr()
-    # result = '3\n'
-    # assert out == result
-    assert solution(n, m, matrix) == 0
+    out, err = capfd.readouterr()
+    result = '3\n'
+    assert out == result
 
 
-# def test_02(capfd):
-    # solution()
-    # out, err = capfd.readouterr()
-    # result = '\n'
-    # assert out == result
+def test_02(capfd):
+    n = 4
+    m = 4
+    matrix = [
+        [9, 8, 7, 6],
+        [8, 7, 6, 5],
+        [7, 6, 5, 4],
+        [6, 5, 4, 3],
+    ]
+    solution(n, m, matrix)
+    out, err = capfd.readouterr()
+    result = '20\n'
+    assert out == result
 
 
-# def test_03(capfd):
-    # solution()
-    # out, err = capfd.readouterr()
-    # result = '\n'
-    # assert out == result
+def test_03(capfd):
+    n = 3
+    m = 5
+    matrix = [
+        [55, 99, 49, 48, 47],
+        [54, 99, 50, 99, 46],
+        [53, 52, 51, 99, 45],
+    ]
+    solution(n, m, matrix)
+    out, err = capfd.readouterr()
+    result = '1\n'
+    assert out == result
 
 
-# def test_04(capfd):
-    # solution()
-    # out, err = capfd.readouterr()
-    # result = '\n'
-    # assert out == result
+def test_04(capfd):
+    n = 3
+    m = 3
+    matrix = [
+        [9, 4, 3],
+        [8, 5, 2],
+        [7, 6, 1],
+    ]
+    solution(n, m, matrix)
+    out, err = capfd.readouterr()
+    result = '4\n'
+    assert out == result
