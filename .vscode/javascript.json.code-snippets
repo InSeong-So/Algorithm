@@ -17,7 +17,7 @@
       "/**",
       " * Solve 함수",
       " */",
-      "const solution = (input) => {",
+      "const solution = input => {",
       "  console.log(input);",
       "}",
       "",

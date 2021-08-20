@@ -3,12 +3,13 @@
 
 <br>
 
-여기 내용은 수시로 바뀝니다. 구조 등도 기록을 통해 변경하므로 일관성을 유지하지 않습니다.
+해당 저장소의 내용은 수시로 바뀝니다. 구조 등도 기록을 통해 변경하므로 일관성을 유지하지 않습니다.
 
 <br>
 
 # 개요
-## 구성
+## 과정
+0. 알고리즘 이해를 위해 이론을 정리하고, 접근법을 명시하여 독립된 디렉토리에 정리한다.
 1. 언어별 snippet을 만든다.
 2. 언어별 테스트를 위한 라이브러리를 적용한다.
     - 현재 이 저장소는 Visual Studio Code를 중점적으로 사용하고 있습니다.
@@ -25,6 +26,7 @@
 <br>
 
 ## 알고리즘과 문제 접근법 등의 이론을 정리한 디렉토리
+- [theory](https://github.com/InSeong-So/Algorithm/tree/master/theory)
 
 <br>
 
@@ -93,7 +95,7 @@
 # 참조
 1. [백준](https://www.acmicpc.net/)
 2. [프로그래머스](https://programmers.co.kr/)
-3. [인프런 김태원님 강의](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4)
 4. [리트코드](https://leetcode.com/)
 5. [해커랭크](https://www.hackerrank.com/)
 6. [순열, 조합 공식](https://coding-factory.tistory.com/606)
+3. [인프런 김태원 지식공유자 강의](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4)
