@@ -5,7 +5,7 @@
  * @param {*} size
  * @returns
  */
-function permutation(array, size = array) {
+const getPermutations = (array, size = array) => {
   let result = [];
 
   function permute(t, i) {
@@ -24,7 +24,7 @@ function permutation(array, size = array) {
   // 재귀 시작
   permute([], 0);
   return result;
-}
+};
 
 /**
  * 중복 순열 구하기
@@ -33,7 +33,7 @@ function permutation(array, size = array) {
  * @param {*} size
  * @returns
  */
-function repetitionPermutation(word = '', solution = [], start = 0) {
+const getRepetitionPermutations = (word = '', solution = [], start = 0) => {
   function swap(array, index1, index2) {
     [array[index1], array[index2]] = [array[index2], array[index1]];
   }
@@ -46,46 +46,45 @@ function repetitionPermutation(word = '', solution = [], start = 0) {
     for (let index = start; index < array.length; index++) {
       // <1>
       swap(array, start, index); // <2>
-      repetitionPermutation(array, solution, start + 1); // <3>
+      getRepetitionPermutations(array, solution, start + 1); // <3>
       swap(array, start, index); // backtrack // <5>
     }
   }
 
   return solution;
-}
+};
 /**
  * 조합 구하기
  *
  * @param {*} array
  * @returns
  */
-function combination(array) {
-  let result = [];
-  let combination = [];
-  let slent = Math.pow(2, array.length);
-
-  for (let i = 0; i < slent; i++) {
-    combination = [];
-    for (let j = 0; j < array.length; j++) {
-      if (i & Math.pow(2, j)) {
-        combination.push(array[j]);
-      }
-    }
-    if (combination.length > 0) {
-      result.push(combination);
-    }
+const getCombinations = (arr, selected) => {
+  const results = [];
+  if (selected === 1) {
+    return arr.map(value => [value]);
   }
 
-  return result;
-}
+  arr.forEach((fixed, index, origin) => {
+    const rest = origin.slice(index + 1);
+    const combinations = getCombinations(rest, selected - 1);
+    results.push(...combinations.map(combination => [fixed, ...combination]));
+  });
 
-// const array = permutation([1, 2, 3, 4], 3).map(a => {
+  return results;
+};
+
+// const array = getPermutations([1, 2, 3, 4], 3).map(a => {
 //   return a.join('');
 // });
 
 // const array2 = combination([1, 2, 3, 4]);
-// const array3 = repetitionPermutation([1, 2, 3, 4], 4);
+// const array3 = getRepetitionPermutations([1, 2, 3, 4], 4);
 
 // console.log(Math.max(...array));
 
-module.exports = { permutation, combination, repetitionPermutation };
+module.exports = {
+  getPermutations,
+  getCombinations,
+  getRepetitionPermutations,
+};
