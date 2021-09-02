@@ -9,7 +9,7 @@ module.exports = class Queue {
   // Overflow : 큐가 가득 차서 더 이상 자료를 넣을 수 없는 경우로서 put이 불가능
   // Underflow : 큐가 비어 있어 자료를 꺼낼 수 없는 경우로 get이 불가능
 
-  // push : 큐에 데이터 삽입
+  // 큐에 데이터 삽입
   push(item) {
     const node = new Node(item);
     if (!this.head) {
@@ -51,7 +51,7 @@ module.exports = class Queue {
   rear() {
     return this.tail;
   }
-
+  // 출력
   print() {
     let current = this.head;
     console.log('Queue Elements ============');

@@ -1,67 +1,87 @@
-export default class Stack {
+// 구조체 정의
+class Stack {
   constructor() {
-    this._arr = [];
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
   }
-
-  // 스택 맨 위에 요소 추가
+  // 스택에 데이터 삽입
   push(item) {
-    this._arr.push(item);
+    const node = new Node(item);
+    if (!this.head) {
+      this.head = node;
+      this.head.next = this.tail;
+      node.prev = this.head;
+    } else {
+      const top = this.tail;
+      top.next = node;
+      node.prev = top;
+    }
+    this.tail = node;
+    this.size++;
   }
-
-  // 스택의 맨 위 요소를 제거하고 반환
+  // 스택의 데이터 반환
   pop() {
-    if (this._arr.length === 0) {
-      return -1;
+    if (!this.head) return null;
+    const popedItem = this.tail;
+    if (popedItem === this.head) {
+      this.head = null;
+    } else {
+      this.tail = popedItem.prev;
+      this.tail.next = null;
     }
-    return this._arr.pop();
+    this.size--;
+    return popedItem.item;
   }
-
-  // 스택의 맨 위 요소를 반환
-  peek() {
-    return this.arr[this._arr.length - 1];
-  }
-
-  get(index) {
-    if (this._arr.length === 0) {
-      return -1;
-    }
-    return this._arr[index];
-  }
-
-  // 스택에서 특정 값의 위치 찾기
-  search(value) {
-    let result = [];
-
-    if (this._arr.length === 0) {
-      return -1;
-    }
-
-    for (let i = 0; i < this._arr.length; i++) {
-      if (value === this._arr[i]) {
-        result.push(i);
-      }
-    }
-
-    result = result.join(' ');
-    // 없다면 -1 반환
-    if (!result) {
-      return -1;
-    }
-    return result;
-  }
-
-  // 스택에 있는 요소의 갯수 반환
+  // 스택의 사이즈 반환
   size() {
-    return this._arr.length;
+    return this.size;
   }
-
   // 스택 비우기
   clear() {
-    this._arr = [];
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+    return true;
   }
-
-  // 스택이 비어있는지 여부를 반환
-  empty() {
-    return this._arr.length > 0 ? false : true;
+  // 스택이 비었는지 확인
+  isEmpty() {
+    return !!this.size;
+  }
+  // 스택의 맨 앞 데이터 확인
+  front() {
+    return this.head;
+  }
+  // 스택의 맨 뒤 데이터 확인
+  rear() {
+    return this.tail;
+  }
+  // 출력
+  print() {
+    let current = this.head;
+    console.log('Stack Elements ============');
+    while (current) {
+      console.log(current.item);
+      current = current.next;
+    }
   }
 }
+
+class Node {
+  constructor(item) {
+    this.item = item;
+    this.prev = null;
+    this.next = null;
+  }
+}
+
+const stack = new Stack();
+console.log(stack.pop());
+stack.push([1, 2, 3]);
+console.log(stack.pop());
+stack.push(2);
+stack.push(3);
+stack.push(4);
+console.log(stack.pop());
+console.log(stack.front());
+console.log(stack.rear());
