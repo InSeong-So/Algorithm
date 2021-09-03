@@ -1,42 +1,44 @@
 /**
  * 입력
  */
-var fs = require('fs');
-var input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const fs = require('fs');
+let [n, ...wines] = fs
+  .readFileSync('/dev/stdin')
+  .toString()
+  .trim()
+  .split('\n')
+  .map(Number);
+wines = [0].concat(wines);
 
-var len = +input[0];
-input = input[1].split(' ').map(Number);
+const dp = new Array(n + 1).fill(0);
 
-var sum = 0;
-var max = 0;
+dp[1] = wines[1];
+dp[2] = dp[1] + wines[2];
 
-sum = input[0];
-max = sum;
-
-for (var i = 1; i < len; i++) {
-  if (sum + input[i] > input[i]) {
-    sum = sum + input[i];
-  } else {
-    sum = input[i];
-  }
-  max = Math.max(max, sum);
+for (let i = 3; i <= n; i++) {
+  dp[i] = Math.max(
+    dp[i - 2] + wines[i],
+    dp[i - 3] + wines[i - 1] + wines[i],
+    dp[i - 1],
+  );
 }
 
-console.log(Math.max(sum, max));
+console.log(dp[n]);
+
 /**
  * ========================================================
- * @Title       : 15_1912
- * @Path        : javascript\문제풀이\boj\b.동적계획법1\15_1912.spec.js
- * @Link        : https://www.acmicpc.net/problem/15_1912
+ * @Title       : 10_2156
+ * @Path        : javascript\문제풀이\boj\b.동적계획법1\10_2156.spec.js
+ * @Link        : https://www.acmicpc.net/problem/2156
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :
- * @Date        : 2021-09-02 21:47:38
+ * @Date        : 2021-09-02 21:43:49
  * --------------------------------------------------------
  * @Author      : Inseong-so(https://github.com/inseong-so)
  * ========================================================
  */
-describe('15_1912', () => {
+describe('10_2156', () => {
   // 테스트 케이스명
   it('기본1', () => {
     console.log = jest.fn();

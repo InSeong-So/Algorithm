@@ -63,9 +63,9 @@ const solution = (n, m, graph) => {
 
 /**
  * ========================================================
- * @Title       : 4963_섬의개수
+ * @Title       : 섬의_개수(4963)
  * @Path        : javascript\문제풀이\boj\z.분류없음\4963_섬의개수.spec.js
- * @Link        : https://www.acmicpc.net/problem/4963_섬의개수
+ * @Link        : https://www.acmicpc.net/problem/4963
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :

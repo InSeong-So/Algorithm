@@ -47,7 +47,7 @@ const solution = input => {
  * ========================================================
  * @Title       : 07_2579
  * @Path        : javascript\문제풀이\boj\b.동적계획법1\07_2579.spec.js
- * @Link        : https://www.acmicpc.net/problem/07_2579
+ * @Link        : https://www.acmicpc.net/problem/2579
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :

@@ -38,7 +38,7 @@ console.log(rstVal);
  * ========================================================
  * @Title       : 14_9251
  * @Path        : javascript\문제풀이\boj\b.동적계획법1\14_9251.spec.js
- * @Link        : https://www.acmicpc.net/problem/14_9251
+ * @Link        : https://www.acmicpc.net/problem/9251
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :

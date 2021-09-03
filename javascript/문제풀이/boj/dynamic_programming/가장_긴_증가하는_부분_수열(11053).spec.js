@@ -1,18 +1,31 @@
 /**
  * 입력
  */
-const N = Number(require('fs').readFileSync('/dev/stdin').toString().trim());
+let line = require('fs').readFileSync('/dev/stdin', 'utf8');
+let data = line.trim().split('\n');
+let n = parseInt(data[0]);
+data = data[1].split(' ').map(function (a) {
+  return parseInt(a);
+});
+data.unshift(0);
 
-const count = Array(N + 1).fill(0);
-count[1] = 0;
+let dp = [0];
 
-for (let i = 2; i <= N; i++) {
-  count[i] = count[i - 1] + 1;
-  if (i % 2 === 0) count[i] = Math.min(count[i], count[i / 2] + 1);
-  if (i % 3 === 0) count[i] = Math.min(count[i], count[i / 3] + 1);
+for (let i = 1; i <= n; i++) {
+  dp[i] = 1;
+  for (let j = 1; j < i; j++) {
+    if (data[j] < data[i] && dp[j] + 1 > dp[i]) {
+      dp[i] = dp[j] + 1;
+    }
+  }
 }
 
-console.log(count[N]);
+let answer = -1001;
+
+for (let k = 0; k < dp.length; k++) {
+  answer = Math.max(answer, dp[k]);
+}
+console.log(answer);
 
 /**
  * Solve 함수
@@ -23,18 +36,18 @@ const solution = input => {
 
 /**
  * ========================================================
- * @Title       : 08_1463
- * @Path        : javascript\문제풀이\boj\b.동적계획법1\08_1463.spec.js
- * @Link        : https://www.acmicpc.net/problem/08_1463
+ * @Title       : 11_11053
+ * @Path        : javascript\문제풀이\boj\b.동적계획법1\11_11053.spec.js
+ * @Link        : https://www.acmicpc.net/problem/11053
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :
- * @Date        : 2021-09-02 21:40:14
+ * @Date        : 2021-09-02 21:44:09
  * --------------------------------------------------------
  * @Author      : Inseong-so(https://github.com/inseong-so)
  * ========================================================
  */
-describe('08_1463', () => {
+describe('11_11053', () => {
   // 테스트 케이스명
   it('기본1', () => {
     console.log = jest.fn();

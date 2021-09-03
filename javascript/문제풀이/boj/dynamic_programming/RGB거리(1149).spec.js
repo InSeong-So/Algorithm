@@ -29,7 +29,7 @@ function solution(N, input) {
  * ========================================================
  * @Title       : 05_1149
  * @Path        : javascript\문제풀이\boj\b.동적계획법1\05_1149.spec.js
- * @Link        : https://www.acmicpc.net/problem/05_1149
+ * @Link        : https://www.acmicpc.net/problem/1149
  * @Description : RGB거리
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :

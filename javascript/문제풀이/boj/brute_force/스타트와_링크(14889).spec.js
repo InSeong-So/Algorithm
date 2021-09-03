@@ -20,7 +20,7 @@ const solution = input => {
  * ========================================================
  * @Title       : 14889_스타트와링크
  * @Path        : javascript\문제풀이\boj\z.분류없음\14889_스타트와링크.spec.js
- * @Link        : https://www.acmicpc.net/problem/14889_스타트와링크
+ * @Link        : https://www.acmicpc.net/problem/14889
  * @Description :
  * @Note        : 1. I/O 신경 쓰지 말고 solution() 함수만 잘 작성하자
  *              :
